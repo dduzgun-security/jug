@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package rating.user.v1;
+
+option go_package = "github.com/dduzgun-security/jug/gen/go/rating/user/v1;userv1";
+option java_package = "com.rating.user.v1";
+option java_multiple_files = true;
+
+message User {
+    string first_name = 1;
+    string last_name = 2;
+    string email = 3;
+    uint32 age = 4;
+    string phone_number = 5;
+    string status = 6;
+}
