@@ -6,3 +6,6 @@ jug-model/jug-model-java/.classpath
 
 # Node
 jug-model/jug-model-js/node_modules/
+
+# Claude
+.claude
