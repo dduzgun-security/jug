@@ -1,0 +1,23 @@
+{
+  "name": "@dduzgun-security/jug-model",
+  "version": "1.0.0",
+  "description": "Protocol Buffer models for poutine ratings",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dduzgun-security/jug.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "dependencies": {
+    "google-protobuf": "^4.0.1"
+  },
+  "keywords": [
+    "protobuf",
+    "poutine",
+    "ratings"
+  ],
+  "author": "dduzgun-security",
+  "license": "MIT"
+}

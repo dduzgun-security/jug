@@ -1,0 +1,130 @@
+name: Publish Packages
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'jug-model/jug-model-java/src/**'
+      - 'jug-model/jug-model-js/rating/**'
+    branches:
+      - main
+
+permissions:
+  contents: write
+  packages: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+    steps:
+      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js for version bumping
+        uses: actions/setup-node@395ad3262231945c25e8478fd5baf05154b1d79f # v6.1.0
+        with:
+          node-version: '25'
+
+      - name: Set up JDK for version bumping
+        uses: actions/setup-java@f2beeb24e141e01a676f977032f5a29d81c9e27e # v5.1.0
+        with:
+          java-version: '25'
+          distribution: 'temurin'
+
+      - name: Bump versions
+        id: version
+        run: |
+          # Bump npm version (patch)
+          cd jug-model/jug-model-js
+          npm version patch --no-git-tag-version
+          NEW_VERSION=$(node -p "require('./package.json').version")
+          echo "version=$NEW_VERSION" >> $GITHUB_OUTPUT
+          cd ../..
+
+          # Bump Maven version
+          cd jug-model/jug-model-java
+          mvn versions:set -DnewVersion=$NEW_VERSION -DgenerateBackupPoms=false
+          cd ../..
+
+      - name: Commit version bump
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add jug-model/jug-model-js/package.json jug-model/jug-model-java/pom.xml
+          git commit -m "chore: bump version to ${{ steps.version.outputs.version }} [skip ci]" || echo "No changes to commit"
+          git push
+
+      - name: Setup Buf
+        uses: bufbuild/buf-setup-action@a47c93e0b1648d5651a065437926377d060baa99 # v1.50.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate code
+        run: cd jug-model && buf generate
+
+      - name: Upload Java artifacts
+        uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 # v5.0.0
+        with:
+          name: java-generated
+          path: jug-model/jug-model-java/
+
+      - name: Upload JS artifacts
+        uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 # v5.0.0
+        with:
+          name: js-generated
+          path: jug-model/jug-model-js/
+
+  publish-java:
+    needs: generate
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+
+      - name: Download Java artifacts
+        uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6.0.0
+        with:
+          name: java-generated
+          path: jug-model/jug-model-java/
+
+      - name: Set up JDK
+        uses: actions/setup-java@f2beeb24e141e01a676f977032f5a29d81c9e27e # v5.1.0
+        with:
+          java-version: '25'
+          distribution: 'temurin'
+
+      - name: Publish to GitHub Packages
+        run: |
+          cd jug-model/jug-model-java
+          mvn --batch-mode deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  publish-js:
+    needs: generate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+
+      - name: Download JS artifacts
+        uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6.0.0
+        with:
+          name: js-generated
+          path: jug-model/jug-model-js/
+
+      - name: Setup Node.js
+        uses: actions/setup-node@395ad3262231945c25e8478fd5baf05154b1d79f # v6.1.0
+        with:
+          node-version: '25'
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@dduzgun-security'
+
+      - name: Publish to GitHub Packages
+        run: |
+          cd jug-model/jug-model-js
+          npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

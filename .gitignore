@@ -1,0 +1,8 @@
+# Maven
+jug-model/jug-model-java/target/
+jug-model/jug-model-java/.settings/
+jug-model/jug-model-java/.project
+jug-model/jug-model-java/.classpath
+
+# Node
+jug-model/jug-model-js/node_modules/

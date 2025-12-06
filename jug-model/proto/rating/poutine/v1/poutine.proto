@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package rating.poutine.v1;
+
+option go_package = "github.com/dduzgun-security/jug/jug-model/jug-model-go/rating/poutine/v1;poutinev1";
+option java_package = "com.rating.poutine.v1";
+option java_multiple_files = true;
+
+message Poutine {
+    string restaurant = 1;
+    uint32 cheese_squeakiness = 2;
+    uint32 gravy_thickness = 3;
+    uint32 fries_crispiness = 4;
+    string size = 5;
+    string comments = 6;
+}
