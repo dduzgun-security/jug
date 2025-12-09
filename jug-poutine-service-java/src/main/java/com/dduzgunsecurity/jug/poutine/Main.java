@@ -65,10 +65,10 @@ public class Main {
 
             System.out.println("Received PoutineRequest: " + poutineRequest);
 
-            // Calculate average score from the three rating fields and round it
+            // Calculate average score from the three rating fields and round to 1 decimal place
             float averageScore = Math.round((poutine.getCheeseSqueakiness() +
                                  poutine.getGravyThickness() +
-                                 poutine.getFriesCrispiness()) / 3.0f);
+                                 poutine.getFriesCrispiness()) / 3.0f * 10.0f) / 10.0f;
 
             // Create PoutineResponse model
             PoutineResponse poutineResponse = PoutineResponse.newBuilder()
@@ -106,6 +106,6 @@ public class Main {
 
     private static int getPort() {
         String portStr = System.getenv("PORT");
-        return portStr != null ? Integer.parseInt(portStr) : 9000;
+        return portStr != null ? Integer.parseInt(portStr) : 8001;
     }
 }

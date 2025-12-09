@@ -3,6 +3,7 @@ import './App.css'
 import RangeSlider from './components/RangeSlider'
 import RatingCard from './components/RatingCard'
 import * as models from '@dduzgun-security/jug-model'
+import { submitUser, submitPoutineRating, submitConsent } from './api'
 
 function App() {
   const [formData, setFormData] = useState({
@@ -19,63 +20,94 @@ function App() {
     gravyThickness: 5,
     friesCrispiness: 5,
     size: 'medium',
-    comments: ''
+    comments: '',
+    // Consent data
+    consent: false
   })
 
   const [savedRatings, setSavedRatings] = useState([])
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState(null)
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target
+    const { name, value, type, checked } = e.target
     setFormData(prev => ({
       ...prev,
-      [name]: (name === 'age' || name.includes('ness') || name.includes('iness')) ? parseInt(value) || 0 : value
+      [name]: type === 'checkbox' ? checked : (name === 'age' || name.includes('ness') || name.includes('iness')) ? parseInt(value) || 0 : value
     }))
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    setIsSubmitting(true)
+    setSubmitError(null)
 
-    // Create User instance
-    const user = new models.user.User()
-    user.setFirstName(formData.firstName)
-    user.setLastName(formData.lastName)
-    user.setEmail(formData.email)
-    user.setAge(formData.age)
-    user.setPhoneNumber(formData.phoneNumber)
-    user.setStatus(formData.status)
+    try {
+      // Create User instance
+      const user = new models.user.User()
+      user.setFirstName(formData.firstName)
+      user.setLastName(formData.lastName)
+      user.setEmail(formData.email)
+      user.setAge(formData.age)
+      user.setPhoneNumber(formData.phoneNumber)
+      user.setStatus(formData.status)
 
-    // Create a new Poutine instance
-    const poutineRating = new models.poutine.Poutine()
-    poutineRating.setRestaurant(formData.restaurant)
-    poutineRating.setCheeseSqueakiness(formData.cheeseSqueakiness)
-    poutineRating.setGravyThickness(formData.gravyThickness)
-    poutineRating.setFriesCrispiness(formData.friesCrispiness)
-    poutineRating.setSize(formData.size)
-    poutineRating.setComments(formData.comments)
+      // Create a new Poutine instance
+      const poutineRating = new models.poutine.Poutine()
+      poutineRating.setRestaurant(formData.restaurant)
+      poutineRating.setCheeseSqueakiness(formData.cheeseSqueakiness)
+      poutineRating.setGravyThickness(formData.gravyThickness)
+      poutineRating.setFriesCrispiness(formData.friesCrispiness)
+      poutineRating.setSize(formData.size)
+      poutineRating.setComments(formData.comments)
 
-    // Log the model instances
-    console.log('User Model:', user)
-    console.log('User as Object:', user.toObject())
-    console.log('Poutine Rating Model:', poutineRating)
-    console.log('Poutine Rating as Object:', poutineRating.toObject())
+      // Create Consent instance
+      const consentModel = new models.consent.Consent()
+      consentModel.setEmail(formData.email)
+      consentModel.setConsent(formData.consent)
 
-    // Add to saved ratings
-    setSavedRatings(prev => [...prev, {
-      id: Date.now(),
-      user: user.toObject(),
-      rating: poutineRating.toObject()
-    }])
+      console.log('User Model:', user.toObject())
+      console.log('Poutine Rating Model:', poutineRating.toObject())
+      console.log('Consent Model:', consentModel.toObject())
 
-    // Reset rating fields only
-    setFormData(prev => ({
-      ...prev,
-      restaurant: '',
-      cheeseSqueakiness: 5,
-      gravyThickness: 5,
-      friesCrispiness: 5,
-      size: 'medium',
-      comments: ''
-    }))
+      // Make API calls in parallel using dedicated service functions
+      const [userResult, poutineResult, consentResult] = await Promise.all([
+        submitUser(user),
+        submitPoutineRating(poutineRating),
+        submitConsent(consentModel)
+      ])
+
+      console.log('User Response:', userResult)
+      console.log('Poutine Response:', poutineResult)
+      console.log('Consent Response:', consentResult)
+
+      // Add to saved ratings with average score from API response
+      setSavedRatings(prev => [...prev, {
+        id: Date.now(),
+        user: user.toObject(),
+        rating: {
+          ...poutineRating.toObject(),
+          averageScore: poutineResult.averageScore || poutineResult.average_score
+        }
+      }])
+
+      // Reset rating fields only
+      setFormData(prev => ({
+        ...prev,
+        restaurant: '',
+        cheeseSqueakiness: 5,
+        gravyThickness: 5,
+        friesCrispiness: 5,
+        size: 'medium',
+        comments: '',
+        consent: false
+      }))
+    } catch (error) {
+      console.error('Error submitting form:', error)
+      setSubmitError(error.message || 'Failed to submit form. Please try again.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -255,14 +287,37 @@ function App() {
                         placeholder="Share your experience..."
                       />
                     </div>
+
+                    <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg p-2 border-2 border-blue-100">
+                      <label className="flex items-start gap-2 cursor-pointer">
+                        <input
+                          type="checkbox"
+                          name="consent"
+                          checked={formData.consent}
+                          onChange={handleInputChange}
+                          required
+                          className="mt-0.5 w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-2 focus:ring-indigo-500/20"
+                        />
+                        <span className="text-[10px] text-gray-700">
+                          I consent to share my rating data for analysis and improvement of the platform
+                        </span>
+                      </label>
+                    </div>
                   </div>
                 </div>
 
+                {submitError && (
+                  <div className="bg-red-50 border-2 border-red-200 rounded-lg p-2 text-[10px] text-red-700">
+                    <strong>Error:</strong> {submitError}
+                  </div>
+                )}
+
                 <button
                   type="submit"
-                  className="w-full py-2 px-4 rounded-lg font-bold text-xs bg-gradient-to-r from-indigo-600 to-purple-600 text-white hover:from-indigo-700 hover:to-purple-700 shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5 active:translate-y-0"
+                  disabled={isSubmitting}
+                  className="w-full py-2 px-4 rounded-lg font-bold text-xs bg-gradient-to-r from-indigo-600 to-purple-600 text-white hover:from-indigo-700 hover:to-purple-700 shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                 >
-                  Submit Rating
+                  {isSubmitting ? 'Submitting...' : 'Submit Rating'}
                 </button>
               </form>
             </div>

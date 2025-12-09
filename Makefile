@@ -1,4 +1,4 @@
-.PHONY: generate-models install-frontend install-js-backend install-java-backend install-go-backend install-all start-frontend start-js-backend start-java-backend start-go-backend clean help
+.PHONY: generate-models install-frontend install-js-backend install-java-backend install-go-backend start-frontend start-js-backend start-java-backend start-go-backend start-all clean help
 
 # Load environment variables from .env file
 ifneq (,$(wildcard ./.env))
@@ -13,11 +13,11 @@ help:
 	@echo "  install-js-backend   - Install JS consent service dependencies"
 	@echo "  install-java-backend - Install Java poutine service dependencies"
 	@echo "  install-go-backend   - Install Go user service dependencies"
-	@echo "  install-all          - Install all project dependencies"
 	@echo "  start-frontend       - Start the frontend development server"
 	@echo "  start-js-backend     - Start the JS consent service"
 	@echo "  start-java-backend   - Start the Java poutine service"
 	@echo "  start-go-backend     - Start the Go user service"
+	@echo "  start-all            - Start all services (frontend, JS backend, Java backend, Go backend)"
 	@echo "  clean                - Remove node_modules and package-lock.json"
 	@echo "  help                 - Show this help message"
 
@@ -58,15 +58,15 @@ install-go-backend:
 	@cd jug-user-service-go && go get github.com/dduzgun-security/jug/jug-model/jug-model-go@main && go mod tidy
 	@echo "Go backend dependencies installed successfully!"
 
-start-frontend:
+start-frontend: install-frontend
 	@echo "Starting frontend development server..."
 	@cd jug-frontend && npm run dev
 
-start-js-backend:
+start-js-backend: install-js-backend
 	@echo "Starting JS backend server..."
 	@cd jug-consent-service-js && node index.js
 
-start-java-backend:
+start-java-backend: install-java-backend
 	@echo "Starting Java poutine service..."
 	@if [ -z "$$GH_AUTH_TOKEN" ]; then \
 		echo "Error: GH_AUTH_TOKEN not set. Make sure .env file exists with GH_AUTH_TOKEN that has read access to GitHub Packages."; \
@@ -74,9 +74,14 @@ start-java-backend:
 	fi
 	@cd jug-poutine-service-java && PORT=8001 mvn -s settings.xml compile exec:java -Dexec.mainClass="com.dduzgunsecurity.jug.poutine.Main"
 
-start-go-backend:
+start-go-backend: install-go-backend
 	@echo "Starting Go user service..."
 	@cd jug-user-service-go && PORT=8002 go run main.go
+
+start-all: install-frontend install-js-backend install-java-backend install-go-backend
+	@echo "Starting all services..."
+	@$(MAKE) -j4 start-frontend start-js-backend start-java-backend start-go-backend
+	
 
 clean:
 	@echo "Cleaning frontend dependencies..."
