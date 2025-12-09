@@ -73,6 +73,94 @@ func (x *Consent) GetConsent() bool {
 	return false
 }
 
+type ConsentRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Consent       *Consent               `protobuf:"bytes,1,opt,name=consent,proto3" json:"consent,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ConsentRequest) Reset() {
+	*x = ConsentRequest{}
+	mi := &file_rating_consent_v1_consent_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ConsentRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ConsentRequest) ProtoMessage() {}
+
+func (x *ConsentRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_rating_consent_v1_consent_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ConsentRequest.ProtoReflect.Descriptor instead.
+func (*ConsentRequest) Descriptor() ([]byte, []int) {
+	return file_rating_consent_v1_consent_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *ConsentRequest) GetConsent() *Consent {
+	if x != nil {
+		return x.Consent
+	}
+	return nil
+}
+
+type ConsentResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Message       string                 `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ConsentResponse) Reset() {
+	*x = ConsentResponse{}
+	mi := &file_rating_consent_v1_consent_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ConsentResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ConsentResponse) ProtoMessage() {}
+
+func (x *ConsentResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_rating_consent_v1_consent_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ConsentResponse.ProtoReflect.Descriptor instead.
+func (*ConsentResponse) Descriptor() ([]byte, []int) {
+	return file_rating_consent_v1_consent_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *ConsentResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
 var File_rating_consent_v1_consent_proto protoreflect.FileDescriptor
 
 const file_rating_consent_v1_consent_proto_rawDesc = "" +
@@ -80,7 +168,11 @@ const file_rating_consent_v1_consent_proto_rawDesc = "" +
 	"\x1frating/consent/v1/consent.proto\x12\x11rating.consent.v1\"9\n" +
 	"\aConsent\x12\x14\n" +
 	"\x05email\x18\x01 \x01(\tR\x05email\x12\x18\n" +
-	"\aconsent\x18\x02 \x01(\bR\aconsentB\xdf\x01\n" +
+	"\aconsent\x18\x02 \x01(\bR\aconsent\"F\n" +
+	"\x0eConsentRequest\x124\n" +
+	"\aconsent\x18\x01 \x01(\v2\x1a.rating.consent.v1.ConsentR\aconsent\"+\n" +
+	"\x0fConsentResponse\x12\x18\n" +
+	"\amessage\x18\x01 \x01(\tR\amessageB\xdf\x01\n" +
 	"\x15com.rating.consent.v1B\fConsentProtoP\x01ZRgithub.com/dduzgun-security/jug/jug-model/jug-model-go/rating/consent/v1;consentv1\xa2\x02\x03RCX\xaa\x02\x11Rating.Consent.V1\xca\x02\x11Rating\\Consent\\V1\xe2\x02\x1dRating\\Consent\\V1\\GPBMetadata\xea\x02\x13Rating::Consent::V1b\x06proto3"
 
 var (
@@ -95,16 +187,19 @@ func file_rating_consent_v1_consent_proto_rawDescGZIP() []byte {
 	return file_rating_consent_v1_consent_proto_rawDescData
 }
 
-var file_rating_consent_v1_consent_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_rating_consent_v1_consent_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_rating_consent_v1_consent_proto_goTypes = []any{
-	(*Consent)(nil), // 0: rating.consent.v1.Consent
+	(*Consent)(nil),         // 0: rating.consent.v1.Consent
+	(*ConsentRequest)(nil),  // 1: rating.consent.v1.ConsentRequest
+	(*ConsentResponse)(nil), // 2: rating.consent.v1.ConsentResponse
 }
 var file_rating_consent_v1_consent_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0, // 0: rating.consent.v1.ConsentRequest.consent:type_name -> rating.consent.v1.Consent
+	1, // [1:1] is the sub-list for method output_type
+	1, // [1:1] is the sub-list for method input_type
+	1, // [1:1] is the sub-list for extension type_name
+	1, // [1:1] is the sub-list for extension extendee
+	0, // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_rating_consent_v1_consent_proto_init() }
@@ -118,7 +213,7 @@ func file_rating_consent_v1_consent_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_rating_consent_v1_consent_proto_rawDesc), len(file_rating_consent_v1_consent_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   1,
+			NumMessages:   3,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

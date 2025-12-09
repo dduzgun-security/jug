@@ -29,10 +29,14 @@ install-frontend:
 	@cd jug-frontend && npm install @dduzgun-security/jug-model@latest && npm install
 	@echo "Frontend dependencies installed successfully!"
 
-install-all: install-frontend
-	@echo "Installing all project dependencies..."
-	@cd jug-frontend && npm install
-	@echo "All dependencies installed successfully!"
+install-js-backend: 
+	@echo "Installing js backend dependencies..."
+	@if [ -z "$$GH_AUTH_TOKEN" ]; then \
+		echo "Error: GH_AUTH_TOKEN not set. Make sure .env file exists with GH_AUTH_TOKEN that has read access to GitHub Packages."; \
+		exit 1; \
+	fi
+	@cd jug-consent-service-js && npm install @dduzgun-security/jug-model@latest && npm install
+	@echo "JS backend dependencies installed successfully!"
 
 start-frontend:
 	@echo "Starting frontend development server..."

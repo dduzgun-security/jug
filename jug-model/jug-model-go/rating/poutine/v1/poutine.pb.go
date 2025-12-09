@@ -105,6 +105,102 @@ func (x *Poutine) GetComments() string {
 	return ""
 }
 
+type PoutineRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Poutine       *Poutine               `protobuf:"bytes,1,opt,name=poutine,proto3" json:"poutine,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PoutineRequest) Reset() {
+	*x = PoutineRequest{}
+	mi := &file_rating_poutine_v1_poutine_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PoutineRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PoutineRequest) ProtoMessage() {}
+
+func (x *PoutineRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_rating_poutine_v1_poutine_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PoutineRequest.ProtoReflect.Descriptor instead.
+func (*PoutineRequest) Descriptor() ([]byte, []int) {
+	return file_rating_poutine_v1_poutine_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *PoutineRequest) GetPoutine() *Poutine {
+	if x != nil {
+		return x.Poutine
+	}
+	return nil
+}
+
+type PoutineResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Message       string                 `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
+	AverageScore  float32                `protobuf:"fixed32,2,opt,name=average_score,json=averageScore,proto3" json:"average_score,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PoutineResponse) Reset() {
+	*x = PoutineResponse{}
+	mi := &file_rating_poutine_v1_poutine_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PoutineResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PoutineResponse) ProtoMessage() {}
+
+func (x *PoutineResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_rating_poutine_v1_poutine_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PoutineResponse.ProtoReflect.Descriptor instead.
+func (*PoutineResponse) Descriptor() ([]byte, []int) {
+	return file_rating_poutine_v1_poutine_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *PoutineResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+func (x *PoutineResponse) GetAverageScore() float32 {
+	if x != nil {
+		return x.AverageScore
+	}
+	return 0
+}
+
 var File_rating_poutine_v1_poutine_proto protoreflect.FileDescriptor
 
 const file_rating_poutine_v1_poutine_proto_rawDesc = "" +
@@ -118,7 +214,12 @@ const file_rating_poutine_v1_poutine_proto_rawDesc = "" +
 	"\x0fgravy_thickness\x18\x03 \x01(\rR\x0egravyThickness\x12)\n" +
 	"\x10fries_crispiness\x18\x04 \x01(\rR\x0ffriesCrispiness\x12\x12\n" +
 	"\x04size\x18\x05 \x01(\tR\x04size\x12\x1a\n" +
-	"\bcomments\x18\x06 \x01(\tR\bcommentsB\xdf\x01\n" +
+	"\bcomments\x18\x06 \x01(\tR\bcomments\"F\n" +
+	"\x0ePoutineRequest\x124\n" +
+	"\apoutine\x18\x01 \x01(\v2\x1a.rating.poutine.v1.PoutineR\apoutine\"P\n" +
+	"\x0fPoutineResponse\x12\x18\n" +
+	"\amessage\x18\x01 \x01(\tR\amessage\x12#\n" +
+	"\raverage_score\x18\x02 \x01(\x02R\faverageScoreB\xdf\x01\n" +
 	"\x15com.rating.poutine.v1B\fPoutineProtoP\x01ZRgithub.com/dduzgun-security/jug/jug-model/jug-model-go/rating/poutine/v1;poutinev1\xa2\x02\x03RPX\xaa\x02\x11Rating.Poutine.V1\xca\x02\x11Rating\\Poutine\\V1\xe2\x02\x1dRating\\Poutine\\V1\\GPBMetadata\xea\x02\x13Rating::Poutine::V1b\x06proto3"
 
 var (
@@ -133,16 +234,19 @@ func file_rating_poutine_v1_poutine_proto_rawDescGZIP() []byte {
 	return file_rating_poutine_v1_poutine_proto_rawDescData
 }
 
-var file_rating_poutine_v1_poutine_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_rating_poutine_v1_poutine_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_rating_poutine_v1_poutine_proto_goTypes = []any{
-	(*Poutine)(nil), // 0: rating.poutine.v1.Poutine
+	(*Poutine)(nil),         // 0: rating.poutine.v1.Poutine
+	(*PoutineRequest)(nil),  // 1: rating.poutine.v1.PoutineRequest
+	(*PoutineResponse)(nil), // 2: rating.poutine.v1.PoutineResponse
 }
 var file_rating_poutine_v1_poutine_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0, // 0: rating.poutine.v1.PoutineRequest.poutine:type_name -> rating.poutine.v1.Poutine
+	1, // [1:1] is the sub-list for method output_type
+	1, // [1:1] is the sub-list for method input_type
+	1, // [1:1] is the sub-list for extension type_name
+	1, // [1:1] is the sub-list for extension extendee
+	0, // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_rating_poutine_v1_poutine_proto_init() }
@@ -156,7 +260,7 @@ func file_rating_poutine_v1_poutine_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_rating_poutine_v1_poutine_proto_rawDesc), len(file_rating_poutine_v1_poutine_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   1,
+			NumMessages:   3,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

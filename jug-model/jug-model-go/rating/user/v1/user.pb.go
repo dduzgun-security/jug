@@ -105,6 +105,94 @@ func (x *User) GetStatus() string {
 	return ""
 }
 
+type UserRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	User          *User                  `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UserRequest) Reset() {
+	*x = UserRequest{}
+	mi := &file_rating_user_v1_user_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UserRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UserRequest) ProtoMessage() {}
+
+func (x *UserRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_rating_user_v1_user_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UserRequest.ProtoReflect.Descriptor instead.
+func (*UserRequest) Descriptor() ([]byte, []int) {
+	return file_rating_user_v1_user_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *UserRequest) GetUser() *User {
+	if x != nil {
+		return x.User
+	}
+	return nil
+}
+
+type UserResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Message       string                 `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UserResponse) Reset() {
+	*x = UserResponse{}
+	mi := &file_rating_user_v1_user_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UserResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UserResponse) ProtoMessage() {}
+
+func (x *UserResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_rating_user_v1_user_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UserResponse.ProtoReflect.Descriptor instead.
+func (*UserResponse) Descriptor() ([]byte, []int) {
+	return file_rating_user_v1_user_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *UserResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
 var File_rating_user_v1_user_proto protoreflect.FileDescriptor
 
 const file_rating_user_v1_user_proto_rawDesc = "" +
@@ -117,7 +205,11 @@ const file_rating_user_v1_user_proto_rawDesc = "" +
 	"\x05email\x18\x03 \x01(\tR\x05email\x12\x10\n" +
 	"\x03age\x18\x04 \x01(\rR\x03age\x12!\n" +
 	"\fphone_number\x18\x05 \x01(\tR\vphoneNumber\x12\x16\n" +
-	"\x06status\x18\x06 \x01(\tR\x06statusB\xc7\x01\n" +
+	"\x06status\x18\x06 \x01(\tR\x06status\"7\n" +
+	"\vUserRequest\x12(\n" +
+	"\x04user\x18\x01 \x01(\v2\x14.rating.user.v1.UserR\x04user\"(\n" +
+	"\fUserResponse\x12\x18\n" +
+	"\amessage\x18\x01 \x01(\tR\amessageB\xc7\x01\n" +
 	"\x12com.rating.user.v1B\tUserProtoP\x01ZLgithub.com/dduzgun-security/jug/jug-model/jug-model-go/rating/user/v1;userv1\xa2\x02\x03RUX\xaa\x02\x0eRating.User.V1\xca\x02\x0eRating\\User\\V1\xe2\x02\x1aRating\\User\\V1\\GPBMetadata\xea\x02\x10Rating::User::V1b\x06proto3"
 
 var (
@@ -132,16 +224,19 @@ func file_rating_user_v1_user_proto_rawDescGZIP() []byte {
 	return file_rating_user_v1_user_proto_rawDescData
 }
 
-var file_rating_user_v1_user_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_rating_user_v1_user_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_rating_user_v1_user_proto_goTypes = []any{
-	(*User)(nil), // 0: rating.user.v1.User
+	(*User)(nil),         // 0: rating.user.v1.User
+	(*UserRequest)(nil),  // 1: rating.user.v1.UserRequest
+	(*UserResponse)(nil), // 2: rating.user.v1.UserResponse
 }
 var file_rating_user_v1_user_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0, // 0: rating.user.v1.UserRequest.user:type_name -> rating.user.v1.User
+	1, // [1:1] is the sub-list for method output_type
+	1, // [1:1] is the sub-list for method input_type
+	1, // [1:1] is the sub-list for extension type_name
+	1, // [1:1] is the sub-list for extension extendee
+	0, // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_rating_user_v1_user_proto_init() }
@@ -155,7 +250,7 @@ func file_rating_user_v1_user_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_rating_user_v1_user_proto_rawDesc), len(file_rating_user_v1_user_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   1,
+			NumMessages:   3,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

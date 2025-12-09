@@ -31,6 +31,16 @@ public final class UserProto extends com.google.protobuf.GeneratedFile {
   static final 
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_rating_user_v1_User_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_rating_user_v1_UserRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_rating_user_v1_UserRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_rating_user_v1_UserResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_rating_user_v1_UserResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -45,12 +55,14 @@ public final class UserProto extends com.google.protobuf.GeneratedFile {
       "ame\022\033\n\tlast_name\030\002 \001(\tR\010lastName\022\024\n\005emai" +
       "l\030\003 \001(\tR\005email\022\020\n\003age\030\004 \001(\rR\003age\022!\n\014phon" +
       "e_number\030\005 \001(\tR\013phoneNumber\022\026\n\006status\030\006 " +
-      "\001(\tR\006statusB\307\001\n\022com.rating.user.v1B\tUser" +
-      "ProtoP\001ZLgithub.com/dduzgun-security/jug" +
-      "/jug-model/jug-model-go/rating/user/v1;u" +
-      "serv1\242\002\003RUX\252\002\016Rating.User.V1\312\002\016Rating\\Us" +
-      "er\\V1\342\002\032Rating\\User\\V1\\GPBMetadata\352\002\020Rat" +
-      "ing::User::V1b\006proto3"
+      "\001(\tR\006status\"7\n\013UserRequest\022(\n\004user\030\001 \001(\013" +
+      "2\024.rating.user.v1.UserR\004user\"(\n\014UserResp" +
+      "onse\022\030\n\007message\030\001 \001(\tR\007messageB\307\001\n\022com.r" +
+      "ating.user.v1B\tUserProtoP\001ZLgithub.com/d" +
+      "duzgun-security/jug/jug-model/jug-model-" +
+      "go/rating/user/v1;userv1\242\002\003RUX\252\002\016Rating." +
+      "User.V1\312\002\016Rating\\User\\V1\342\002\032Rating\\User\\V" +
+      "1\\GPBMetadata\352\002\020Rating::User::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -62,6 +74,18 @@ public final class UserProto extends com.google.protobuf.GeneratedFile {
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rating_user_v1_User_descriptor,
         new java.lang.String[] { "FirstName", "LastName", "Email", "Age", "PhoneNumber", "Status", });
+    internal_static_rating_user_v1_UserRequest_descriptor =
+      getDescriptor().getMessageType(1);
+    internal_static_rating_user_v1_UserRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_rating_user_v1_UserRequest_descriptor,
+        new java.lang.String[] { "User", });
+    internal_static_rating_user_v1_UserResponse_descriptor =
+      getDescriptor().getMessageType(2);
+    internal_static_rating_user_v1_UserResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_rating_user_v1_UserResponse_descriptor,
+        new java.lang.String[] { "Message", });
     descriptor.resolveAllFeaturesImmutable();
   }
 

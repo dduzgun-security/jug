@@ -14,3 +14,11 @@ message User {
     string phone_number = 5;
     string status = 6;
 }
+
+message UserRequest {
+    User user = 1;
+}
+
+message UserResponse {
+    string message = 1;
+}

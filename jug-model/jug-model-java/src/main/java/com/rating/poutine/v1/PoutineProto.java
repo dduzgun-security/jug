@@ -31,6 +31,16 @@ public final class PoutineProto extends com.google.protobuf.GeneratedFile {
   static final 
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_rating_poutine_v1_Poutine_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_rating_poutine_v1_PoutineRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_rating_poutine_v1_PoutineRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_rating_poutine_v1_PoutineResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_rating_poutine_v1_PoutineResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -46,13 +56,17 @@ public final class PoutineProto extends com.google.protobuf.GeneratedFile {
       " \001(\rR\021cheeseSqueakiness\022\'\n\017gravy_thickne" +
       "ss\030\003 \001(\rR\016gravyThickness\022)\n\020fries_crispi" +
       "ness\030\004 \001(\rR\017friesCrispiness\022\022\n\004size\030\005 \001(" +
-      "\tR\004size\022\032\n\010comments\030\006 \001(\tR\010commentsB\337\001\n\025" +
-      "com.rating.poutine.v1B\014PoutineProtoP\001ZRg" +
-      "ithub.com/dduzgun-security/jug/jug-model" +
-      "/jug-model-go/rating/poutine/v1;poutinev" +
-      "1\242\002\003RPX\252\002\021Rating.Poutine.V1\312\002\021Rating\\Pou" +
-      "tine\\V1\342\002\035Rating\\Poutine\\V1\\GPBMetadata\352" +
-      "\002\023Rating::Poutine::V1b\006proto3"
+      "\tR\004size\022\032\n\010comments\030\006 \001(\tR\010comments\"F\n\016P" +
+      "outineRequest\0224\n\007poutine\030\001 \001(\0132\032.rating." +
+      "poutine.v1.PoutineR\007poutine\"P\n\017PoutineRe" +
+      "sponse\022\030\n\007message\030\001 \001(\tR\007message\022#\n\raver" +
+      "age_score\030\002 \001(\002R\014averageScoreB\337\001\n\025com.ra" +
+      "ting.poutine.v1B\014PoutineProtoP\001ZRgithub." +
+      "com/dduzgun-security/jug/jug-model/jug-m" +
+      "odel-go/rating/poutine/v1;poutinev1\242\002\003RP" +
+      "X\252\002\021Rating.Poutine.V1\312\002\021Rating\\Poutine\\V" +
+      "1\342\002\035Rating\\Poutine\\V1\\GPBMetadata\352\002\023Rati" +
+      "ng::Poutine::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -64,6 +78,18 @@ public final class PoutineProto extends com.google.protobuf.GeneratedFile {
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rating_poutine_v1_Poutine_descriptor,
         new java.lang.String[] { "Restaurant", "CheeseSqueakiness", "GravyThickness", "FriesCrispiness", "Size", "Comments", });
+    internal_static_rating_poutine_v1_PoutineRequest_descriptor =
+      getDescriptor().getMessageType(1);
+    internal_static_rating_poutine_v1_PoutineRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_rating_poutine_v1_PoutineRequest_descriptor,
+        new java.lang.String[] { "Poutine", });
+    internal_static_rating_poutine_v1_PoutineResponse_descriptor =
+      getDescriptor().getMessageType(2);
+    internal_static_rating_poutine_v1_PoutineResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_rating_poutine_v1_PoutineResponse_descriptor,
+        new java.lang.String[] { "Message", "AverageScore", });
     descriptor.resolveAllFeaturesImmutable();
   }
 

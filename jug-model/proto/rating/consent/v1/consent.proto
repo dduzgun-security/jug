@@ -10,3 +10,11 @@ message Consent {
     string email = 1;
     bool consent = 2;
 }
+
+message ConsentRequest {
+    Consent consent = 1;
+}
+
+message ConsentResponse {
+    string message = 1;
+}
