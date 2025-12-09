@@ -31,6 +31,46 @@ public final class PoutineProto extends com.google.protobuf.GeneratedFile {
   static final 
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_rating_poutine_v1_Poutine_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_rating_poutine_v1_CreateRatingRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_rating_poutine_v1_CreateRatingRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_rating_poutine_v1_CreateRatingResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_rating_poutine_v1_CreateRatingResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_rating_poutine_v1_GetRatingRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_rating_poutine_v1_GetRatingRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_rating_poutine_v1_GetRatingResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_rating_poutine_v1_GetRatingResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_rating_poutine_v1_ListRatingsRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_rating_poutine_v1_ListRatingsRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_rating_poutine_v1_ListRatingsResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_rating_poutine_v1_ListRatingsResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_rating_poutine_v1_ListRatingsByRestaurantRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_rating_poutine_v1_ListRatingsByRestaurantRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_rating_poutine_v1_ListRatingsByRestaurantResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_rating_poutine_v1_ListRatingsByRestaurantResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -46,13 +86,38 @@ public final class PoutineProto extends com.google.protobuf.GeneratedFile {
       " \001(\rR\021cheeseSqueakiness\022\'\n\017gravy_thickne" +
       "ss\030\003 \001(\rR\016gravyThickness\022)\n\020fries_crispi" +
       "ness\030\004 \001(\rR\017friesCrispiness\022\022\n\004size\030\005 \001(" +
-      "\tR\004size\022\032\n\010comments\030\006 \001(\tR\010commentsB\337\001\n\025" +
-      "com.rating.poutine.v1B\014PoutineProtoP\001ZRg" +
-      "ithub.com/dduzgun-security/jug/jug-model" +
-      "/jug-model-go/rating/poutine/v1;poutinev" +
-      "1\242\002\003RPX\252\002\021Rating.Poutine.V1\312\002\021Rating\\Pou" +
-      "tine\\V1\342\002\035Rating\\Poutine\\V1\\GPBMetadata\352" +
-      "\002\023Rating::Poutine::V1b\006proto3"
+      "\tR\004size\022\032\n\010comments\030\006 \001(\tR\010comments\"b\n\023C" +
+      "reateRatingRequest\022\027\n\007user_id\030\001 \001(\003R\006use" +
+      "rId\0222\n\006rating\030\002 \001(\0132\032.rating.poutine.v1." +
+      "PoutineR\006rating\"J\n\024CreateRatingResponse\022" +
+      "2\n\006rating\030\001 \001(\0132\032.rating.poutine.v1.Pout" +
+      "ineR\006rating\"/\n\020GetRatingRequest\022\033\n\tratin" +
+      "g_id\030\001 \001(\003R\010ratingId\"G\n\021GetRatingRespons" +
+      "e\0222\n\006rating\030\001 \001(\0132\032.rating.poutine.v1.Po" +
+      "utineR\006rating\"\024\n\022ListRatingsRequest\"K\n\023L" +
+      "istRatingsResponse\0224\n\007ratings\030\001 \003(\0132\032.ra" +
+      "ting.poutine.v1.PoutineR\007ratings\"@\n\036List" +
+      "RatingsByRestaurantRequest\022\036\n\nrestaurant" +
+      "\030\001 \001(\tR\nrestaurant\"W\n\037ListRatingsByResta" +
+      "urantResponse\0224\n\007ratings\030\001 \003(\0132\032.rating." +
+      "poutine.v1.PoutineR\007ratings2\252\003\n\016PoutineS" +
+      "ervice\022_\n\014CreateRating\022&.rating.poutine." +
+      "v1.CreateRatingRequest\032\'.rating.poutine." +
+      "v1.CreateRatingResponse\022V\n\tGetRating\022#.r" +
+      "ating.poutine.v1.GetRatingRequest\032$.rati" +
+      "ng.poutine.v1.GetRatingResponse\022\\\n\013ListR" +
+      "atings\022%.rating.poutine.v1.ListRatingsRe" +
+      "quest\032&.rating.poutine.v1.ListRatingsRes" +
+      "ponse\022\200\001\n\027ListRatingsByRestaurant\0221.rati" +
+      "ng.poutine.v1.ListRatingsByRestaurantReq" +
+      "uest\0322.rating.poutine.v1.ListRatingsByRe" +
+      "staurantResponseB\337\001\n\025com.rating.poutine." +
+      "v1B\014PoutineProtoP\001ZRgithub.com/dduzgun-s" +
+      "ecurity/jug/jug-model/jug-model-go/ratin" +
+      "g/poutine/v1;poutinev1\242\002\003RPX\252\002\021Rating.Po" +
+      "utine.V1\312\002\021Rating\\Poutine\\V1\342\002\035Rating\\Po" +
+      "utine\\V1\\GPBMetadata\352\002\023Rating::Poutine::" +
+      "V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -64,6 +129,54 @@ public final class PoutineProto extends com.google.protobuf.GeneratedFile {
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rating_poutine_v1_Poutine_descriptor,
         new java.lang.String[] { "Restaurant", "CheeseSqueakiness", "GravyThickness", "FriesCrispiness", "Size", "Comments", });
+    internal_static_rating_poutine_v1_CreateRatingRequest_descriptor =
+      getDescriptor().getMessageType(1);
+    internal_static_rating_poutine_v1_CreateRatingRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_rating_poutine_v1_CreateRatingRequest_descriptor,
+        new java.lang.String[] { "UserId", "Rating", });
+    internal_static_rating_poutine_v1_CreateRatingResponse_descriptor =
+      getDescriptor().getMessageType(2);
+    internal_static_rating_poutine_v1_CreateRatingResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_rating_poutine_v1_CreateRatingResponse_descriptor,
+        new java.lang.String[] { "Rating", });
+    internal_static_rating_poutine_v1_GetRatingRequest_descriptor =
+      getDescriptor().getMessageType(3);
+    internal_static_rating_poutine_v1_GetRatingRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_rating_poutine_v1_GetRatingRequest_descriptor,
+        new java.lang.String[] { "RatingId", });
+    internal_static_rating_poutine_v1_GetRatingResponse_descriptor =
+      getDescriptor().getMessageType(4);
+    internal_static_rating_poutine_v1_GetRatingResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_rating_poutine_v1_GetRatingResponse_descriptor,
+        new java.lang.String[] { "Rating", });
+    internal_static_rating_poutine_v1_ListRatingsRequest_descriptor =
+      getDescriptor().getMessageType(5);
+    internal_static_rating_poutine_v1_ListRatingsRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_rating_poutine_v1_ListRatingsRequest_descriptor,
+        new java.lang.String[] { });
+    internal_static_rating_poutine_v1_ListRatingsResponse_descriptor =
+      getDescriptor().getMessageType(6);
+    internal_static_rating_poutine_v1_ListRatingsResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_rating_poutine_v1_ListRatingsResponse_descriptor,
+        new java.lang.String[] { "Ratings", });
+    internal_static_rating_poutine_v1_ListRatingsByRestaurantRequest_descriptor =
+      getDescriptor().getMessageType(7);
+    internal_static_rating_poutine_v1_ListRatingsByRestaurantRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_rating_poutine_v1_ListRatingsByRestaurantRequest_descriptor,
+        new java.lang.String[] { "Restaurant", });
+    internal_static_rating_poutine_v1_ListRatingsByRestaurantResponse_descriptor =
+      getDescriptor().getMessageType(8);
+    internal_static_rating_poutine_v1_ListRatingsByRestaurantResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_rating_poutine_v1_ListRatingsByRestaurantResponse_descriptor,
+        new java.lang.String[] { "Ratings", });
     descriptor.resolveAllFeaturesImmutable();
   }
 

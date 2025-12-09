@@ -1,27 +1,61 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
-import RangeSlider from './components/RangeSlider'
 import RatingCard from './components/RatingCard'
+import UserForm from './forms/UserForm'
+import PoutineRatingForm from './forms/PoutineRatingForm'
+import { initialUserData } from './models/userModel'
+import { initialPoutineData } from './models/poutineModel'
+
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000'
 
 function App() {
   const [formData, setFormData] = useState({
-    // User data
-    firstName: '',
-    lastName: '',
-    email: '',
-    age: '',
-    phoneNumber: '',
-    status: 'active',
-    // Rating data
-    restaurant: '',
-    cheeseSqueakiness: 5,
-    gravyThickness: 5,
-    friesCrispiness: 5,
-    size: 'medium',
-    comments: ''
+    ...initialUserData,
+    ...initialPoutineData
   })
 
   const [savedRatings, setSavedRatings] = useState([])
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null)
+
+  // Fetch all ratings on component mount
+  useEffect(() => {
+    fetchRatings()
+  }, [])
+
+  const fetchRatings = async () => {
+    try {
+      const response = await fetch(`${API_URL}/api/ratings`)
+      if (!response.ok) throw new Error('Failed to fetch ratings')
+      const data = await response.json()
+
+      // Transform the data to match the expected format
+      const transformedRatings = data.ratings?.map(rating => ({
+        id: rating.id,
+        user: {
+          firstName: rating.user?.first_name || '',
+          lastName: rating.user?.last_name || '',
+          email: rating.user?.email || '',
+          age: rating.user?.age || 0,
+          phoneNumber: rating.user?.phone_number || '',
+          status: rating.user?.status || 'active'
+        },
+        rating: {
+          restaurant: rating.restaurant,
+          cheeseSqueakiness: rating.cheese_squeakiness,
+          gravyThickness: rating.gravy_thickness,
+          friesCrispiness: rating.fries_crispiness,
+          size: rating.size,
+          comments: rating.comments
+        }
+      })) || []
+
+      setSavedRatings(transformedRatings)
+    } catch (err) {
+      console.error('Error fetching ratings:', err)
+      // setError('Failed to load ratings')
+    }
+  }
 
   const handleInputChange = (e) => {
     const { name, value } = e.target
@@ -33,51 +67,69 @@ function App() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    setLoading(true)
+    setError(null)
 
-    // Import the models
-    const models = await import('@dduzgun-security/jug-model')
+    try {
+      // Step 1: Create user
+      const userResponse = await fetch(`${API_URL}/api/users`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          first_name: formData.firstName,
+          last_name: formData.lastName,
+          email: formData.email,
+          age: formData.age,
+          phone_number: formData.phoneNumber,
+          status: formData.status
+        })
+      })
 
-    // Create User instance
-    const user = new models.user.User()
-    user.setFirstName(formData.firstName)
-    user.setLastName(formData.lastName)
-    user.setEmail(formData.email)
-    user.setAge(formData.age)
-    user.setPhoneNumber(formData.phoneNumber)
-    user.setStatus(formData.status)
+      if (!userResponse.ok) throw new Error('Failed to create user')
+      const userData = await userResponse.json()
+      const userId = userData.user?.id
 
-    // Create a new Poutine instance
-    const poutineRating = new models.poutine.Poutine()
-    poutineRating.setRestaurant(formData.restaurant)
-    poutineRating.setCheeseSqueakiness(formData.cheeseSqueakiness)
-    poutineRating.setGravyThickness(formData.gravyThickness)
-    poutineRating.setFriesCrispiness(formData.friesCrispiness)
-    poutineRating.setSize(formData.size)
-    poutineRating.setComments(formData.comments)
+      console.log('Created user:', userData)
 
-    // Log the model instances
-    console.log('User Model:', user)
-    console.log('User as Object:', user.toObject())
-    console.log('Poutine Rating Model:', poutineRating)
-    console.log('Poutine Rating as Object:', poutineRating.toObject())
+      // Step 2: Create rating with the user_id
+      const ratingResponse = await fetch(`${API_URL}/api/ratings`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          user_id: userId,
+          restaurant: formData.restaurant,
+          cheese_squeakiness: formData.cheeseSqueakiness,
+          gravy_thickness: formData.gravyThickness,
+          fries_crispiness: formData.friesCrispiness,
+          size: formData.size,
+          comments: formData.comments
+        })
+      })
 
-    // Add to saved ratings
-    setSavedRatings(prev => [...prev, {
-      id: Date.now(),
-      user: user.toObject(),
-      rating: poutineRating.toObject()
-    }])
+      if (!ratingResponse.ok) throw new Error('Failed to create rating')
+      const ratingData = await ratingResponse.json()
 
-    // Reset rating fields only
-    setFormData(prev => ({
-      ...prev,
-      restaurant: '',
-      cheeseSqueakiness: 5,
-      gravyThickness: 5,
-      friesCrispiness: 5,
-      size: 'medium',
-      comments: ''
-    }))
+      console.log('Created rating:', ratingData)
+
+      // Refresh the ratings list to show the new rating
+      await fetchRatings()
+
+      // Reset rating fields only
+      setFormData(prev => ({
+        ...prev,
+        ...initialPoutineData
+      }))
+
+    } catch (err) {
+      console.error('Error submitting rating:', err)
+      setError(err.message || 'Failed to submit rating')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -96,177 +148,21 @@ function App() {
           <div className="lg:col-span-2 overflow-hidden">
             <div className="bg-white/80 backdrop-blur-sm rounded-xl shadow-xl border border-white/20 p-3 h-full overflow-hidden">
               <form onSubmit={handleSubmit} className="space-y-2 h-full flex flex-col">
-                {/* User Information Section */}
-                <div className="border-b border-gray-200 pb-2">
-                  <h2 className="text-xs font-bold text-gray-800 mb-2 flex items-center gap-1.5">
-                    <div className="w-4 h-4 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-md flex items-center justify-center">
-                      <svg className="w-2.5 h-2.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                      </svg>
-                    </div>
-                    User Information
-                  </h2>
-                  <div className="grid grid-cols-3 gap-2">
-                    <div>
-                      <label className="block text-[10px] font-semibold text-gray-700 mb-1">First Name</label>
-                      <input
-                        type="text"
-                        name="firstName"
-                        value={formData.firstName}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-2 py-1.5 text-xs border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all"
-                        placeholder="John"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-[10px] font-semibold text-gray-700 mb-1">Last Name</label>
-                      <input
-                        type="text"
-                        name="lastName"
-                        value={formData.lastName}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-2 py-1.5 text-xs border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all"
-                        placeholder="Doe"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-[10px] font-semibold text-gray-700 mb-1">Age</label>
-                      <input
-                        type="number"
-                        name="age"
-                        value={formData.age}
-                        onChange={handleInputChange}
-                        required
-                        min="1"
-                        max="120"
-                        className="w-full px-2 py-1.5 text-xs border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all"
-                        placeholder="25"
-                      />
-                    </div>
-                    <div className="col-span-2">
-                      <label className="block text-[10px] font-semibold text-gray-700 mb-1">Email</label>
-                      <input
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-2 py-1.5 text-xs border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all"
-                        placeholder="john@example.com"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-[10px] font-semibold text-gray-700 mb-1">Status</label>
-                      <select
-                        name="status"
-                        value={formData.status}
-                        onChange={handleInputChange}
-                        className="w-full px-2 py-1.5 text-xs border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all bg-white"
-                      >
-                        <option value="active">Active</option>
-                        <option value="inactive">Inactive</option>
-                        <option value="premium">Premium</option>
-                      </select>
-                    </div>
-                    <div className="col-span-3">
-                      <label className="block text-[10px] font-semibold text-gray-700 mb-1">Phone</label>
-                      <input
-                        type="tel"
-                        name="phoneNumber"
-                        value={formData.phoneNumber}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-2 py-1.5 text-xs border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all"
-                        placeholder="+1 234 567 8900"
-                      />
-                    </div>
+                <UserForm formData={formData} onChange={handleInputChange} />
+                <PoutineRatingForm formData={formData} onChange={handleInputChange} />
+
+                {error && (
+                  <div className="bg-red-50 border border-red-200 text-red-700 px-3 py-2 rounded-lg text-xs">
+                    {error}
                   </div>
-                </div>
-
-                {/* Poutine Rating Section */}
-                <div className="flex-1 min-h-0">
-                  <h2 className="text-xs font-bold text-gray-800 mb-2 flex items-center gap-1.5">
-                    <div className="w-4 h-4 bg-gradient-to-br from-amber-400 to-orange-500 rounded-md flex items-center justify-center">
-                      <svg className="w-2.5 h-2.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
-                      </svg>
-                    </div>
-                    Poutine Rating
-                  </h2>
-                  <div className="space-y-2">
-                    <div>
-                      <label className="block text-[10px] font-semibold text-gray-700 mb-1">Restaurant Name</label>
-                      <input
-                        type="text"
-                        name="restaurant"
-                        value={formData.restaurant}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-2 py-1.5 text-xs border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all"
-                        placeholder="e.g., La Banquise"
-                      />
-                    </div>
-
-                    <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-lg p-2 border-2 border-amber-100">
-                      <h3 className="text-[10px] font-bold text-gray-700 mb-1.5">Quality Ratings</h3>
-                      <div className="space-y-1.5">
-                        <RangeSlider
-                          label="Cheese Squeakiness"
-                          name="cheeseSqueakiness"
-                          value={formData.cheeseSqueakiness}
-                          onChange={handleInputChange}
-                        />
-                        <RangeSlider
-                          label="Gravy Thickness"
-                          name="gravyThickness"
-                          value={formData.gravyThickness}
-                          onChange={handleInputChange}
-                        />
-                        <RangeSlider
-                          label="Fries Crispiness"
-                          name="friesCrispiness"
-                          value={formData.friesCrispiness}
-                          onChange={handleInputChange}
-                        />
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="block text-[10px] font-semibold text-gray-700 mb-1">Portion Size</label>
-                      <select
-                        name="size"
-                        value={formData.size}
-                        onChange={handleInputChange}
-                        className="w-full px-2 py-1.5 text-xs border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all bg-white"
-                      >
-                        <option value="small">Small</option>
-                        <option value="medium">Medium</option>
-                        <option value="large">Large</option>
-                        <option value="xlarge">X-Large</option>
-                      </select>
-                    </div>
-
-                    <div>
-                      <label className="block text-[10px] font-semibold text-gray-700 mb-1">Comments</label>
-                      <textarea
-                        name="comments"
-                        value={formData.comments}
-                        onChange={handleInputChange}
-                        rows="2"
-                        className="w-full px-2 py-1.5 text-xs border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all resize-none"
-                        placeholder="Share your experience..."
-                      />
-                    </div>
-                  </div>
-                </div>
+                )}
 
                 <button
                   type="submit"
-                  className="w-full py-2 px-4 rounded-lg font-bold text-xs bg-gradient-to-r from-indigo-600 to-purple-600 text-white hover:from-indigo-700 hover:to-purple-700 shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5 active:translate-y-0"
+                  disabled={loading}
+                  className="w-full py-2 px-4 rounded-lg font-bold text-xs bg-gradient-to-r from-indigo-600 to-purple-600 text-white hover:from-indigo-700 hover:to-purple-700 shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                 >
-                  Submit Rating
+                  {loading ? 'Submitting...' : 'Submit Rating'}
                 </button>
               </form>
             </div>

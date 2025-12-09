@@ -1,0 +1,22 @@
+{
+  "name": "jug-node-service",
+  "version": "1.0.0",
+  "description": "Node.js BFF for Jug poutine rating app",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "dependencies": {
+    "@dduzgun-security/jug-model": "1.0.1",
+    "@grpc/grpc-js": "^1.12.4",
+    "express": "^4.21.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "google-protobuf": "^4.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}

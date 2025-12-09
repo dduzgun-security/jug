@@ -105,6 +105,358 @@ func (x *Poutine) GetComments() string {
 	return ""
 }
 
+type CreateRatingRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	UserId        int64                  `protobuf:"varint,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	Rating        *Poutine               `protobuf:"bytes,2,opt,name=rating,proto3" json:"rating,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateRatingRequest) Reset() {
+	*x = CreateRatingRequest{}
+	mi := &file_rating_poutine_v1_poutine_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateRatingRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateRatingRequest) ProtoMessage() {}
+
+func (x *CreateRatingRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_rating_poutine_v1_poutine_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateRatingRequest.ProtoReflect.Descriptor instead.
+func (*CreateRatingRequest) Descriptor() ([]byte, []int) {
+	return file_rating_poutine_v1_poutine_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *CreateRatingRequest) GetUserId() int64 {
+	if x != nil {
+		return x.UserId
+	}
+	return 0
+}
+
+func (x *CreateRatingRequest) GetRating() *Poutine {
+	if x != nil {
+		return x.Rating
+	}
+	return nil
+}
+
+type CreateRatingResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Rating        *Poutine               `protobuf:"bytes,1,opt,name=rating,proto3" json:"rating,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateRatingResponse) Reset() {
+	*x = CreateRatingResponse{}
+	mi := &file_rating_poutine_v1_poutine_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateRatingResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateRatingResponse) ProtoMessage() {}
+
+func (x *CreateRatingResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_rating_poutine_v1_poutine_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateRatingResponse.ProtoReflect.Descriptor instead.
+func (*CreateRatingResponse) Descriptor() ([]byte, []int) {
+	return file_rating_poutine_v1_poutine_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *CreateRatingResponse) GetRating() *Poutine {
+	if x != nil {
+		return x.Rating
+	}
+	return nil
+}
+
+type GetRatingRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	RatingId      int64                  `protobuf:"varint,1,opt,name=rating_id,json=ratingId,proto3" json:"rating_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRatingRequest) Reset() {
+	*x = GetRatingRequest{}
+	mi := &file_rating_poutine_v1_poutine_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRatingRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRatingRequest) ProtoMessage() {}
+
+func (x *GetRatingRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_rating_poutine_v1_poutine_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRatingRequest.ProtoReflect.Descriptor instead.
+func (*GetRatingRequest) Descriptor() ([]byte, []int) {
+	return file_rating_poutine_v1_poutine_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *GetRatingRequest) GetRatingId() int64 {
+	if x != nil {
+		return x.RatingId
+	}
+	return 0
+}
+
+type GetRatingResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Rating        *Poutine               `protobuf:"bytes,1,opt,name=rating,proto3" json:"rating,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRatingResponse) Reset() {
+	*x = GetRatingResponse{}
+	mi := &file_rating_poutine_v1_poutine_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRatingResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRatingResponse) ProtoMessage() {}
+
+func (x *GetRatingResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_rating_poutine_v1_poutine_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRatingResponse.ProtoReflect.Descriptor instead.
+func (*GetRatingResponse) Descriptor() ([]byte, []int) {
+	return file_rating_poutine_v1_poutine_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *GetRatingResponse) GetRating() *Poutine {
+	if x != nil {
+		return x.Rating
+	}
+	return nil
+}
+
+type ListRatingsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListRatingsRequest) Reset() {
+	*x = ListRatingsRequest{}
+	mi := &file_rating_poutine_v1_poutine_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListRatingsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListRatingsRequest) ProtoMessage() {}
+
+func (x *ListRatingsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_rating_poutine_v1_poutine_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListRatingsRequest.ProtoReflect.Descriptor instead.
+func (*ListRatingsRequest) Descriptor() ([]byte, []int) {
+	return file_rating_poutine_v1_poutine_proto_rawDescGZIP(), []int{5}
+}
+
+type ListRatingsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Ratings       []*Poutine             `protobuf:"bytes,1,rep,name=ratings,proto3" json:"ratings,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListRatingsResponse) Reset() {
+	*x = ListRatingsResponse{}
+	mi := &file_rating_poutine_v1_poutine_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListRatingsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListRatingsResponse) ProtoMessage() {}
+
+func (x *ListRatingsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_rating_poutine_v1_poutine_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListRatingsResponse.ProtoReflect.Descriptor instead.
+func (*ListRatingsResponse) Descriptor() ([]byte, []int) {
+	return file_rating_poutine_v1_poutine_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *ListRatingsResponse) GetRatings() []*Poutine {
+	if x != nil {
+		return x.Ratings
+	}
+	return nil
+}
+
+type ListRatingsByRestaurantRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Restaurant    string                 `protobuf:"bytes,1,opt,name=restaurant,proto3" json:"restaurant,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListRatingsByRestaurantRequest) Reset() {
+	*x = ListRatingsByRestaurantRequest{}
+	mi := &file_rating_poutine_v1_poutine_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListRatingsByRestaurantRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListRatingsByRestaurantRequest) ProtoMessage() {}
+
+func (x *ListRatingsByRestaurantRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_rating_poutine_v1_poutine_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListRatingsByRestaurantRequest.ProtoReflect.Descriptor instead.
+func (*ListRatingsByRestaurantRequest) Descriptor() ([]byte, []int) {
+	return file_rating_poutine_v1_poutine_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *ListRatingsByRestaurantRequest) GetRestaurant() string {
+	if x != nil {
+		return x.Restaurant
+	}
+	return ""
+}
+
+type ListRatingsByRestaurantResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Ratings       []*Poutine             `protobuf:"bytes,1,rep,name=ratings,proto3" json:"ratings,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListRatingsByRestaurantResponse) Reset() {
+	*x = ListRatingsByRestaurantResponse{}
+	mi := &file_rating_poutine_v1_poutine_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListRatingsByRestaurantResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListRatingsByRestaurantResponse) ProtoMessage() {}
+
+func (x *ListRatingsByRestaurantResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_rating_poutine_v1_poutine_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListRatingsByRestaurantResponse.ProtoReflect.Descriptor instead.
+func (*ListRatingsByRestaurantResponse) Descriptor() ([]byte, []int) {
+	return file_rating_poutine_v1_poutine_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *ListRatingsByRestaurantResponse) GetRatings() []*Poutine {
+	if x != nil {
+		return x.Ratings
+	}
+	return nil
+}
+
 var File_rating_poutine_v1_poutine_proto protoreflect.FileDescriptor
 
 const file_rating_poutine_v1_poutine_proto_rawDesc = "" +
@@ -118,7 +470,30 @@ const file_rating_poutine_v1_poutine_proto_rawDesc = "" +
 	"\x0fgravy_thickness\x18\x03 \x01(\rR\x0egravyThickness\x12)\n" +
 	"\x10fries_crispiness\x18\x04 \x01(\rR\x0ffriesCrispiness\x12\x12\n" +
 	"\x04size\x18\x05 \x01(\tR\x04size\x12\x1a\n" +
-	"\bcomments\x18\x06 \x01(\tR\bcommentsB\xdf\x01\n" +
+	"\bcomments\x18\x06 \x01(\tR\bcomments\"b\n" +
+	"\x13CreateRatingRequest\x12\x17\n" +
+	"\auser_id\x18\x01 \x01(\x03R\x06userId\x122\n" +
+	"\x06rating\x18\x02 \x01(\v2\x1a.rating.poutine.v1.PoutineR\x06rating\"J\n" +
+	"\x14CreateRatingResponse\x122\n" +
+	"\x06rating\x18\x01 \x01(\v2\x1a.rating.poutine.v1.PoutineR\x06rating\"/\n" +
+	"\x10GetRatingRequest\x12\x1b\n" +
+	"\trating_id\x18\x01 \x01(\x03R\bratingId\"G\n" +
+	"\x11GetRatingResponse\x122\n" +
+	"\x06rating\x18\x01 \x01(\v2\x1a.rating.poutine.v1.PoutineR\x06rating\"\x14\n" +
+	"\x12ListRatingsRequest\"K\n" +
+	"\x13ListRatingsResponse\x124\n" +
+	"\aratings\x18\x01 \x03(\v2\x1a.rating.poutine.v1.PoutineR\aratings\"@\n" +
+	"\x1eListRatingsByRestaurantRequest\x12\x1e\n" +
+	"\n" +
+	"restaurant\x18\x01 \x01(\tR\n" +
+	"restaurant\"W\n" +
+	"\x1fListRatingsByRestaurantResponse\x124\n" +
+	"\aratings\x18\x01 \x03(\v2\x1a.rating.poutine.v1.PoutineR\aratings2\xaa\x03\n" +
+	"\x0ePoutineService\x12_\n" +
+	"\fCreateRating\x12&.rating.poutine.v1.CreateRatingRequest\x1a'.rating.poutine.v1.CreateRatingResponse\x12V\n" +
+	"\tGetRating\x12#.rating.poutine.v1.GetRatingRequest\x1a$.rating.poutine.v1.GetRatingResponse\x12\\\n" +
+	"\vListRatings\x12%.rating.poutine.v1.ListRatingsRequest\x1a&.rating.poutine.v1.ListRatingsResponse\x12\x80\x01\n" +
+	"\x17ListRatingsByRestaurant\x121.rating.poutine.v1.ListRatingsByRestaurantRequest\x1a2.rating.poutine.v1.ListRatingsByRestaurantResponseB\xdf\x01\n" +
 	"\x15com.rating.poutine.v1B\fPoutineProtoP\x01ZRgithub.com/dduzgun-security/jug/jug-model/jug-model-go/rating/poutine/v1;poutinev1\xa2\x02\x03RPX\xaa\x02\x11Rating.Poutine.V1\xca\x02\x11Rating\\Poutine\\V1\xe2\x02\x1dRating\\Poutine\\V1\\GPBMetadata\xea\x02\x13Rating::Poutine::V1b\x06proto3"
 
 var (
@@ -133,16 +508,37 @@ func file_rating_poutine_v1_poutine_proto_rawDescGZIP() []byte {
 	return file_rating_poutine_v1_poutine_proto_rawDescData
 }
 
-var file_rating_poutine_v1_poutine_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_rating_poutine_v1_poutine_proto_msgTypes = make([]protoimpl.MessageInfo, 9)
 var file_rating_poutine_v1_poutine_proto_goTypes = []any{
-	(*Poutine)(nil), // 0: rating.poutine.v1.Poutine
+	(*Poutine)(nil),                         // 0: rating.poutine.v1.Poutine
+	(*CreateRatingRequest)(nil),             // 1: rating.poutine.v1.CreateRatingRequest
+	(*CreateRatingResponse)(nil),            // 2: rating.poutine.v1.CreateRatingResponse
+	(*GetRatingRequest)(nil),                // 3: rating.poutine.v1.GetRatingRequest
+	(*GetRatingResponse)(nil),               // 4: rating.poutine.v1.GetRatingResponse
+	(*ListRatingsRequest)(nil),              // 5: rating.poutine.v1.ListRatingsRequest
+	(*ListRatingsResponse)(nil),             // 6: rating.poutine.v1.ListRatingsResponse
+	(*ListRatingsByRestaurantRequest)(nil),  // 7: rating.poutine.v1.ListRatingsByRestaurantRequest
+	(*ListRatingsByRestaurantResponse)(nil), // 8: rating.poutine.v1.ListRatingsByRestaurantResponse
 }
 var file_rating_poutine_v1_poutine_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0, // 0: rating.poutine.v1.CreateRatingRequest.rating:type_name -> rating.poutine.v1.Poutine
+	0, // 1: rating.poutine.v1.CreateRatingResponse.rating:type_name -> rating.poutine.v1.Poutine
+	0, // 2: rating.poutine.v1.GetRatingResponse.rating:type_name -> rating.poutine.v1.Poutine
+	0, // 3: rating.poutine.v1.ListRatingsResponse.ratings:type_name -> rating.poutine.v1.Poutine
+	0, // 4: rating.poutine.v1.ListRatingsByRestaurantResponse.ratings:type_name -> rating.poutine.v1.Poutine
+	1, // 5: rating.poutine.v1.PoutineService.CreateRating:input_type -> rating.poutine.v1.CreateRatingRequest
+	3, // 6: rating.poutine.v1.PoutineService.GetRating:input_type -> rating.poutine.v1.GetRatingRequest
+	5, // 7: rating.poutine.v1.PoutineService.ListRatings:input_type -> rating.poutine.v1.ListRatingsRequest
+	7, // 8: rating.poutine.v1.PoutineService.ListRatingsByRestaurant:input_type -> rating.poutine.v1.ListRatingsByRestaurantRequest
+	2, // 9: rating.poutine.v1.PoutineService.CreateRating:output_type -> rating.poutine.v1.CreateRatingResponse
+	4, // 10: rating.poutine.v1.PoutineService.GetRating:output_type -> rating.poutine.v1.GetRatingResponse
+	6, // 11: rating.poutine.v1.PoutineService.ListRatings:output_type -> rating.poutine.v1.ListRatingsResponse
+	8, // 12: rating.poutine.v1.PoutineService.ListRatingsByRestaurant:output_type -> rating.poutine.v1.ListRatingsByRestaurantResponse
+	9, // [9:13] is the sub-list for method output_type
+	5, // [5:9] is the sub-list for method input_type
+	5, // [5:5] is the sub-list for extension type_name
+	5, // [5:5] is the sub-list for extension extendee
+	0, // [0:5] is the sub-list for field type_name
 }
 
 func init() { file_rating_poutine_v1_poutine_proto_init() }
@@ -156,9 +552,9 @@ func file_rating_poutine_v1_poutine_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_rating_poutine_v1_poutine_proto_rawDesc), len(file_rating_poutine_v1_poutine_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   1,
+			NumMessages:   9,
 			NumExtensions: 0,
-			NumServices:   0,
+			NumServices:   1,
 		},
 		GoTypes:           file_rating_poutine_v1_poutine_proto_goTypes,
 		DependencyIndexes: file_rating_poutine_v1_poutine_proto_depIdxs,

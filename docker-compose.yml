@@ -1,0 +1,112 @@
+services:
+  # PostgreSQL Database (shared)
+  jug-db:
+    image: postgres:18-alpine
+    container_name: jug-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5433:5432"
+    volumes:
+      - jug-db-data:/var/lib/postgresql/data
+      - ./init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # Java User Service
+  java-user-service:
+    build:
+      context: .
+      dockerfile: jug-java-user-service/Dockerfile
+      args:
+        GITHUB_TOKEN: ${NODE_AUTH_TOKEN}
+    container_name: jug-java-user-service
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://jug-db:5432/jug_users
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+    ports:
+      - "50051:50051"
+    depends_on:
+      jug-db:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "grpc_health_probe -addr=:50051 || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Go Rating Service
+  go-rating-service:
+    build:
+      context: .
+      dockerfile: jug-go-rating-service/Dockerfile
+    container_name: jug-go-rating-service
+    environment:
+      GRPC_PORT: 50052
+      DB_HOST: jug-db
+      DB_PORT: 5432
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_NAME: jug_ratings
+      DB_SSLMODE: disable
+    ports:
+      - "50052:50052"
+    depends_on:
+      jug-db:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "grpc_health_probe -addr=:50052 || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Node.js BFF
+  node-bff:
+    build:
+      context: ./jug-node-service
+      dockerfile: Dockerfile
+      args:
+        NODE_AUTH_TOKEN: ${NODE_AUTH_TOKEN}
+    container_name: jug-node-bff
+    environment:
+      PORT: 3000
+      USER_SERVICE_URL: java-user-service:50051
+      RATING_SERVICE_URL: go-rating-service:50052
+      NODE_ENV: production
+    ports:
+      - "3000:3000"
+    depends_on:
+      - java-user-service
+      - go-rating-service
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:3000/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Frontend (React)
+  frontend:
+    build:
+      context: ./jug-frontend
+      dockerfile: Dockerfile
+      args:
+        NODE_AUTH_TOKEN: ${NODE_AUTH_TOKEN}
+    container_name: jug-frontend
+    environment:
+      VITE_API_URL: http://localhost:3000
+    ports:
+      - "5173:5173"
+    depends_on:
+      - node-bff
+
+volumes:
+  jug-db-data:
+
+networks:
+  default:
+    name: jug-network

@@ -14,3 +14,41 @@ message Poutine {
     string size = 5;
     string comments = 6;
 }
+
+message CreateRatingRequest {
+    int64 user_id = 1;
+    Poutine rating = 2;
+}
+
+message CreateRatingResponse {
+    Poutine rating = 1;
+}
+
+message GetRatingRequest {
+    int64 rating_id = 1;
+}
+
+message GetRatingResponse {
+    Poutine rating = 1;
+}
+
+message ListRatingsRequest {}
+
+message ListRatingsResponse {
+    repeated Poutine ratings = 1;
+}
+
+message ListRatingsByRestaurantRequest {
+    string restaurant = 1;
+}
+
+message ListRatingsByRestaurantResponse {
+    repeated Poutine ratings = 1;
+}
+
+service PoutineService {
+    rpc CreateRating(CreateRatingRequest) returns (CreateRatingResponse);
+    rpc GetRating(GetRatingRequest) returns (GetRatingResponse);
+    rpc ListRatings(ListRatingsRequest) returns (ListRatingsResponse);
+    rpc ListRatingsByRestaurant(ListRatingsByRestaurantRequest) returns (ListRatingsByRestaurantResponse);
+}
