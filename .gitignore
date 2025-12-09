@@ -9,3 +9,6 @@ jug-model/jug-model-js/node_modules/
 
 # Claude
 .claude
+
+# Env files
+.env

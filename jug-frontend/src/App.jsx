@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import RangeSlider from './components/RangeSlider'
 import RatingCard from './components/RatingCard'
+import * as models from '@dduzgun-security/jug-model'
 
 function App() {
   const [formData, setFormData] = useState({
@@ -33,9 +34,6 @@ function App() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-
-    // Import the models
-    const models = await import('@dduzgun-security/jug-model')
 
     // Create User instance
     const user = new models.user.User()
@@ -139,8 +137,6 @@ function App() {
                         value={formData.age}
                         onChange={handleInputChange}
                         required
-                        min="1"
-                        max="120"
                         className="w-full px-2 py-1.5 text-xs border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all"
                         placeholder="25"
                       />

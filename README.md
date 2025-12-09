@@ -26,13 +26,14 @@ Add to your `pom.xml`:
 <dependency>
     <groupId>com.github.dduzgun-security</groupId>
     <artifactId>jug-model</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 </dependency>
 ```
 
 ### JavaScript
 ```bash
-npm install @dduzgun-security/jug-model
+export GH_AUTH_TOKEN=...
+npm install @dduzgun-security/jug-model@latest
 ```
 
 ```javascript
