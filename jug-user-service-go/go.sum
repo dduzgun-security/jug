@@ -1,0 +1,6 @@
+github.com/dduzgun-security/jug/jug-model/jug-model-go v0.0.0-20251209065621-29087f77906a h1:C99Ly5A0MX8yYkhpZ9NdQcZYN9wd+S34h4vJ+kEb8Ww=
+github.com/dduzgun-security/jug/jug-model/jug-model-go v0.0.0-20251209065621-29087f77906a/go.mod h1:vnHKoYwTVKQISqqmzPIYcn+kBfmshFSF7jPTyx0wWD0=
+github.com/google/go-cmp v0.7.0 h1:wk8382ETsv4JYUZwIsn6YpYiWiBsYLSJiTsyBybVuN8=
+github.com/google/go-cmp v0.7.0/go.mod h1:pXiqmnSA92OHEEa9HXL2W4E7lf9JzCmGVUdgjX3N/iU=
+google.golang.org/protobuf v1.36.10 h1:AYd7cD/uASjIL6Q9LiTjz8JLcrh/88q5UObnmY3aOOE=
+google.golang.org/protobuf v1.36.10/go.mod h1:HTf+CrKn2C3g5S8VImy6tdcUvCska2kB7j23XfzDpco=

@@ -1,4 +1,4 @@
-.PHONY: generate-models install-frontend install-java-backend install-all start-frontend start-java-backend clean help
+.PHONY: generate-models install-frontend install-js-backend install-java-backend install-go-backend install-all start-frontend start-js-backend start-java-backend start-go-backend clean help
 
 # Load environment variables from .env file
 ifneq (,$(wildcard ./.env))
@@ -10,10 +10,14 @@ help:
 	@echo "Available targets:"
 	@echo "  generate-models      - Generate protobuf models"
 	@echo "  install-frontend     - Install frontend dependencies using GitHub registry"
-	@echo "  install-java-backend - Install Java backend dependencies"
+	@echo "  install-js-backend   - Install JS consent service dependencies"
+	@echo "  install-java-backend - Install Java poutine service dependencies"
+	@echo "  install-go-backend   - Install Go user service dependencies"
 	@echo "  install-all          - Install all project dependencies"
 	@echo "  start-frontend       - Start the frontend development server"
+	@echo "  start-js-backend     - Start the JS consent service"
 	@echo "  start-java-backend   - Start the Java poutine service"
+	@echo "  start-go-backend     - Start the Go user service"
 	@echo "  clean                - Remove node_modules and package-lock.json"
 	@echo "  help                 - Show this help message"
 
@@ -49,6 +53,11 @@ install-java-backend:
 	@cd jug-poutine-service-java && mvn -s settings.xml clean compile
 	@echo "Java backend dependencies installed successfully!"
 
+install-go-backend:
+	@echo "Installing Go backend dependencies..."
+	@cd jug-user-service-go && go get github.com/dduzgun-security/jug/jug-model/jug-model-go@main && go mod tidy
+	@echo "Go backend dependencies installed successfully!"
+
 start-frontend:
 	@echo "Starting frontend development server..."
 	@cd jug-frontend && npm run dev
@@ -64,6 +73,10 @@ start-java-backend:
 		exit 1; \
 	fi
 	@cd jug-poutine-service-java && PORT=8001 mvn -s settings.xml compile exec:java -Dexec.mainClass="com.dduzgunsecurity.jug.poutine.Main"
+
+start-go-backend:
+	@echo "Starting Go user service..."
+	@cd jug-user-service-go && PORT=8002 go run main.go
 
 clean:
 	@echo "Cleaning frontend dependencies..."
