@@ -4,8 +4,8 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - 'jug-model/jug-model-java/src/**'
-      - 'jug-model/jug-model-js/rating/**'
+      - 'jug-model/jug-model-java/**'
+      - 'jug-model/jug-model-js/**'
     branches:
       - main
 
