@@ -40,26 +40,31 @@ public final class PoutineProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\037rating/poutine/v1/poutine.proto\022\021ratin" +
-      "g.poutine.v1\"\334\001\n\007Poutine\022\036\n\nrestaurant\030\001" +
-      " \001(\tR\nrestaurant\022-\n\022cheese_squeakiness\030\002" +
-      " \001(\rR\021cheeseSqueakiness\022\'\n\017gravy_thickne" +
-      "ss\030\003 \001(\rR\016gravyThickness\022)\n\020fries_crispi" +
-      "ness\030\004 \001(\rR\017friesCrispiness\022\022\n\004size\030\005 \001(" +
-      "\tR\004size\022\032\n\010comments\030\006 \001(\tR\010comments\"F\n\016P" +
-      "outineRequest\0224\n\007poutine\030\001 \001(\0132\032.rating." +
-      "poutine.v1.PoutineR\007poutine\"P\n\017PoutineRe" +
-      "sponse\022\030\n\007message\030\001 \001(\tR\007message\022#\n\raver" +
-      "age_score\030\002 \001(\002R\014averageScoreB\337\001\n\025com.ra" +
-      "ting.poutine.v1B\014PoutineProtoP\001ZRgithub." +
-      "com/dduzgun-security/jug/jug-model/jug-m" +
-      "odel-go/rating/poutine/v1;poutinev1\242\002\003RP" +
-      "X\252\002\021Rating.Poutine.V1\312\002\021Rating\\Poutine\\V" +
-      "1\342\002\035Rating\\Poutine\\V1\\GPBMetadata\352\002\023Rati" +
-      "ng::Poutine::V1b\006proto3"
+      "g.poutine.v1\032\033buf/validate/validate.prot" +
+      "o\"\312\002\n\007Poutine\022+\n\nrestaurant\030\001 \001(\tB\013\272H\010r\003" +
+      "\030\200\001\310\001\001R\nrestaurant\022;\n\022cheese_squeakiness" +
+      "\030\002 \001(\rB\014\272H\t*\004\030\n(\000\310\001\001R\021cheeseSqueakiness\022" +
+      "5\n\017gravy_thickness\030\003 \001(\rB\014\272H\t*\004\030\n(\000\310\001\001R\016" +
+      "gravyThickness\0227\n\020fries_crispiness\030\004 \001(\r" +
+      "B\014\272H\t*\004\030\n(\000\310\001\001R\017friesCrispiness\022<\n\004size\030" +
+      "\005 \001(\tB(\272H%r 2\036^(Small|Medium|Large|X-Lar" +
+      "ge)$\310\001\001R\004size\022\'\n\010comments\030\006 \001(\tB\013\272H\010r\003\030\364" +
+      "\003\310\001\001R\010comments\"F\n\016PoutineRequest\0224\n\007pout" +
+      "ine\030\001 \001(\0132\032.rating.poutine.v1.PoutineR\007p" +
+      "outine\"P\n\017PoutineResponse\022\030\n\007message\030\001 \001" +
+      "(\tR\007message\022#\n\raverage_score\030\002 \001(\002R\014aver" +
+      "ageScoreB\337\001\n\025com.rating.poutine.v1B\014Pout" +
+      "ineProtoP\001ZRgithub.com/dduzgun-security/" +
+      "jug/jug-model/jug-model-go/rating/poutin" +
+      "e/v1;poutinev1\242\002\003RPX\252\002\021Rating.Poutine.V1" +
+      "\312\002\021Rating\\Poutine\\V1\342\002\035Rating\\Poutine\\V1" +
+      "\\GPBMetadata\352\002\023Rating::Poutine::V1b\006prot" +
+      "o3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          com.buf.validate.ValidateProto.getDescriptor(),
         });
     internal_static_rating_poutine_v1_Poutine_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -79,6 +84,12 @@ public final class PoutineProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_rating_poutine_v1_PoutineResponse_descriptor,
         new java.lang.String[] { "Message", "AverageScore", });
+    com.google.protobuf.ExtensionRegistry registry =
+        com.google.protobuf.ExtensionRegistry.newInstance();
+    registry.add(com.buf.validate.ValidateProto.field);
+    com.google.protobuf.Descriptors.FileDescriptor
+        .internalUpdateFileDescriptor(descriptor, registry);
+    com.buf.validate.ValidateProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

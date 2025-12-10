@@ -327,7 +327,7 @@ function App() {
                           name="consent"
                           checked={formData.consent}
                           onChange={handleInputChange}
-                          required
+                          // required
                           className="mt-0.5 w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-2 focus:ring-indigo-500/20"
                         />
                         <span className="text-[10px] text-gray-700">

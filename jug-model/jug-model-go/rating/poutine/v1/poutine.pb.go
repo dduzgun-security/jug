@@ -7,6 +7,7 @@
 package poutinev1
 
 import (
+	_ "buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go/buf/validate"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -205,16 +206,19 @@ var File_rating_poutine_v1_poutine_proto protoreflect.FileDescriptor
 
 const file_rating_poutine_v1_poutine_proto_rawDesc = "" +
 	"\n" +
-	"\x1frating/poutine/v1/poutine.proto\x12\x11rating.poutine.v1\"\xdc\x01\n" +
-	"\aPoutine\x12\x1e\n" +
+	"\x1frating/poutine/v1/poutine.proto\x12\x11rating.poutine.v1\x1a\x1bbuf/validate/validate.proto\"\xca\x02\n" +
+	"\aPoutine\x12+\n" +
 	"\n" +
-	"restaurant\x18\x01 \x01(\tR\n" +
-	"restaurant\x12-\n" +
-	"\x12cheese_squeakiness\x18\x02 \x01(\rR\x11cheeseSqueakiness\x12'\n" +
-	"\x0fgravy_thickness\x18\x03 \x01(\rR\x0egravyThickness\x12)\n" +
-	"\x10fries_crispiness\x18\x04 \x01(\rR\x0ffriesCrispiness\x12\x12\n" +
-	"\x04size\x18\x05 \x01(\tR\x04size\x12\x1a\n" +
-	"\bcomments\x18\x06 \x01(\tR\bcomments\"F\n" +
+	"restaurant\x18\x01 \x01(\tB\v\xbaH\b\xc8\x01\x01r\x03\x18\x80\x01R\n" +
+	"restaurant\x12;\n" +
+	"\x12cheese_squeakiness\x18\x02 \x01(\rB\f\xbaH\t\xc8\x01\x01*\x04\x18\n" +
+	"(\x00R\x11cheeseSqueakiness\x125\n" +
+	"\x0fgravy_thickness\x18\x03 \x01(\rB\f\xbaH\t\xc8\x01\x01*\x04\x18\n" +
+	"(\x00R\x0egravyThickness\x127\n" +
+	"\x10fries_crispiness\x18\x04 \x01(\rB\f\xbaH\t\xc8\x01\x01*\x04\x18\n" +
+	"(\x00R\x0ffriesCrispiness\x12<\n" +
+	"\x04size\x18\x05 \x01(\tB(\xbaH%\xc8\x01\x01r 2\x1e^(Small|Medium|Large|X-Large)$R\x04size\x12'\n" +
+	"\bcomments\x18\x06 \x01(\tB\v\xbaH\b\xc8\x01\x01r\x03\x18\xf4\x03R\bcomments\"F\n" +
 	"\x0ePoutineRequest\x124\n" +
 	"\apoutine\x18\x01 \x01(\v2\x1a.rating.poutine.v1.PoutineR\apoutine\"P\n" +
 	"\x0fPoutineResponse\x12\x18\n" +

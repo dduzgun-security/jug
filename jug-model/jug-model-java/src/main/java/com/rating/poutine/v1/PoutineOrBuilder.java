@@ -9,54 +9,54 @@ public interface PoutineOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string restaurant = 1 [json_name = "restaurant"];</code>
+   * <code>string restaurant = 1 [json_name = "restaurant", (.buf.validate.field) = { ... }</code>
    * @return The restaurant.
    */
   java.lang.String getRestaurant();
   /**
-   * <code>string restaurant = 1 [json_name = "restaurant"];</code>
+   * <code>string restaurant = 1 [json_name = "restaurant", (.buf.validate.field) = { ... }</code>
    * @return The bytes for restaurant.
    */
   com.google.protobuf.ByteString
       getRestaurantBytes();
 
   /**
-   * <code>uint32 cheese_squeakiness = 2 [json_name = "cheeseSqueakiness"];</code>
+   * <code>uint32 cheese_squeakiness = 2 [json_name = "cheeseSqueakiness", (.buf.validate.field) = { ... }</code>
    * @return The cheeseSqueakiness.
    */
   int getCheeseSqueakiness();
 
   /**
-   * <code>uint32 gravy_thickness = 3 [json_name = "gravyThickness"];</code>
+   * <code>uint32 gravy_thickness = 3 [json_name = "gravyThickness", (.buf.validate.field) = { ... }</code>
    * @return The gravyThickness.
    */
   int getGravyThickness();
 
   /**
-   * <code>uint32 fries_crispiness = 4 [json_name = "friesCrispiness"];</code>
+   * <code>uint32 fries_crispiness = 4 [json_name = "friesCrispiness", (.buf.validate.field) = { ... }</code>
    * @return The friesCrispiness.
    */
   int getFriesCrispiness();
 
   /**
-   * <code>string size = 5 [json_name = "size"];</code>
+   * <code>string size = 5 [json_name = "size", (.buf.validate.field) = { ... }</code>
    * @return The size.
    */
   java.lang.String getSize();
   /**
-   * <code>string size = 5 [json_name = "size"];</code>
+   * <code>string size = 5 [json_name = "size", (.buf.validate.field) = { ... }</code>
    * @return The bytes for size.
    */
   com.google.protobuf.ByteString
       getSizeBytes();
 
   /**
-   * <code>string comments = 6 [json_name = "comments"];</code>
+   * <code>string comments = 6 [json_name = "comments", (.buf.validate.field) = { ... }</code>
    * @return The comments.
    */
   java.lang.String getComments();
   /**
-   * <code>string comments = 6 [json_name = "comments"];</code>
+   * <code>string comments = 6 [json_name = "comments", (.buf.validate.field) = { ... }</code>
    * @return The bytes for comments.
    */
   com.google.protobuf.ByteString

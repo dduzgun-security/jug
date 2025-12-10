@@ -46,7 +46,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object restaurant_ = "";
   /**
-   * <code>string restaurant = 1 [json_name = "restaurant"];</code>
+   * <code>string restaurant = 1 [json_name = "restaurant", (.buf.validate.field) = { ... }</code>
    * @return The restaurant.
    */
   @java.lang.Override
@@ -63,7 +63,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string restaurant = 1 [json_name = "restaurant"];</code>
+   * <code>string restaurant = 1 [json_name = "restaurant", (.buf.validate.field) = { ... }</code>
    * @return The bytes for restaurant.
    */
   @java.lang.Override
@@ -84,7 +84,7 @@ private static final long serialVersionUID = 0L;
   public static final int CHEESE_SQUEAKINESS_FIELD_NUMBER = 2;
   private int cheeseSqueakiness_ = 0;
   /**
-   * <code>uint32 cheese_squeakiness = 2 [json_name = "cheeseSqueakiness"];</code>
+   * <code>uint32 cheese_squeakiness = 2 [json_name = "cheeseSqueakiness", (.buf.validate.field) = { ... }</code>
    * @return The cheeseSqueakiness.
    */
   @java.lang.Override
@@ -95,7 +95,7 @@ private static final long serialVersionUID = 0L;
   public static final int GRAVY_THICKNESS_FIELD_NUMBER = 3;
   private int gravyThickness_ = 0;
   /**
-   * <code>uint32 gravy_thickness = 3 [json_name = "gravyThickness"];</code>
+   * <code>uint32 gravy_thickness = 3 [json_name = "gravyThickness", (.buf.validate.field) = { ... }</code>
    * @return The gravyThickness.
    */
   @java.lang.Override
@@ -106,7 +106,7 @@ private static final long serialVersionUID = 0L;
   public static final int FRIES_CRISPINESS_FIELD_NUMBER = 4;
   private int friesCrispiness_ = 0;
   /**
-   * <code>uint32 fries_crispiness = 4 [json_name = "friesCrispiness"];</code>
+   * <code>uint32 fries_crispiness = 4 [json_name = "friesCrispiness", (.buf.validate.field) = { ... }</code>
    * @return The friesCrispiness.
    */
   @java.lang.Override
@@ -118,7 +118,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object size_ = "";
   /**
-   * <code>string size = 5 [json_name = "size"];</code>
+   * <code>string size = 5 [json_name = "size", (.buf.validate.field) = { ... }</code>
    * @return The size.
    */
   @java.lang.Override
@@ -135,7 +135,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string size = 5 [json_name = "size"];</code>
+   * <code>string size = 5 [json_name = "size", (.buf.validate.field) = { ... }</code>
    * @return The bytes for size.
    */
   @java.lang.Override
@@ -157,7 +157,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object comments_ = "";
   /**
-   * <code>string comments = 6 [json_name = "comments"];</code>
+   * <code>string comments = 6 [json_name = "comments", (.buf.validate.field) = { ... }</code>
    * @return The comments.
    */
   @java.lang.Override
@@ -174,7 +174,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string comments = 6 [json_name = "comments"];</code>
+   * <code>string comments = 6 [json_name = "comments", (.buf.validate.field) = { ... }</code>
    * @return The bytes for comments.
    */
   @java.lang.Override
@@ -637,7 +637,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object restaurant_ = "";
     /**
-     * <code>string restaurant = 1 [json_name = "restaurant"];</code>
+     * <code>string restaurant = 1 [json_name = "restaurant", (.buf.validate.field) = { ... }</code>
      * @return The restaurant.
      */
     public java.lang.String getRestaurant() {
@@ -653,7 +653,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string restaurant = 1 [json_name = "restaurant"];</code>
+     * <code>string restaurant = 1 [json_name = "restaurant", (.buf.validate.field) = { ... }</code>
      * @return The bytes for restaurant.
      */
     public com.google.protobuf.ByteString
@@ -670,7 +670,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string restaurant = 1 [json_name = "restaurant"];</code>
+     * <code>string restaurant = 1 [json_name = "restaurant", (.buf.validate.field) = { ... }</code>
      * @param value The restaurant to set.
      * @return This builder for chaining.
      */
@@ -683,7 +683,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string restaurant = 1 [json_name = "restaurant"];</code>
+     * <code>string restaurant = 1 [json_name = "restaurant", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearRestaurant() {
@@ -693,7 +693,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string restaurant = 1 [json_name = "restaurant"];</code>
+     * <code>string restaurant = 1 [json_name = "restaurant", (.buf.validate.field) = { ... }</code>
      * @param value The bytes for restaurant to set.
      * @return This builder for chaining.
      */
@@ -709,7 +709,7 @@ private static final long serialVersionUID = 0L;
 
     private int cheeseSqueakiness_ ;
     /**
-     * <code>uint32 cheese_squeakiness = 2 [json_name = "cheeseSqueakiness"];</code>
+     * <code>uint32 cheese_squeakiness = 2 [json_name = "cheeseSqueakiness", (.buf.validate.field) = { ... }</code>
      * @return The cheeseSqueakiness.
      */
     @java.lang.Override
@@ -717,7 +717,7 @@ private static final long serialVersionUID = 0L;
       return cheeseSqueakiness_;
     }
     /**
-     * <code>uint32 cheese_squeakiness = 2 [json_name = "cheeseSqueakiness"];</code>
+     * <code>uint32 cheese_squeakiness = 2 [json_name = "cheeseSqueakiness", (.buf.validate.field) = { ... }</code>
      * @param value The cheeseSqueakiness to set.
      * @return This builder for chaining.
      */
@@ -729,7 +729,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>uint32 cheese_squeakiness = 2 [json_name = "cheeseSqueakiness"];</code>
+     * <code>uint32 cheese_squeakiness = 2 [json_name = "cheeseSqueakiness", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearCheeseSqueakiness() {
@@ -741,7 +741,7 @@ private static final long serialVersionUID = 0L;
 
     private int gravyThickness_ ;
     /**
-     * <code>uint32 gravy_thickness = 3 [json_name = "gravyThickness"];</code>
+     * <code>uint32 gravy_thickness = 3 [json_name = "gravyThickness", (.buf.validate.field) = { ... }</code>
      * @return The gravyThickness.
      */
     @java.lang.Override
@@ -749,7 +749,7 @@ private static final long serialVersionUID = 0L;
       return gravyThickness_;
     }
     /**
-     * <code>uint32 gravy_thickness = 3 [json_name = "gravyThickness"];</code>
+     * <code>uint32 gravy_thickness = 3 [json_name = "gravyThickness", (.buf.validate.field) = { ... }</code>
      * @param value The gravyThickness to set.
      * @return This builder for chaining.
      */
@@ -761,7 +761,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>uint32 gravy_thickness = 3 [json_name = "gravyThickness"];</code>
+     * <code>uint32 gravy_thickness = 3 [json_name = "gravyThickness", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearGravyThickness() {
@@ -773,7 +773,7 @@ private static final long serialVersionUID = 0L;
 
     private int friesCrispiness_ ;
     /**
-     * <code>uint32 fries_crispiness = 4 [json_name = "friesCrispiness"];</code>
+     * <code>uint32 fries_crispiness = 4 [json_name = "friesCrispiness", (.buf.validate.field) = { ... }</code>
      * @return The friesCrispiness.
      */
     @java.lang.Override
@@ -781,7 +781,7 @@ private static final long serialVersionUID = 0L;
       return friesCrispiness_;
     }
     /**
-     * <code>uint32 fries_crispiness = 4 [json_name = "friesCrispiness"];</code>
+     * <code>uint32 fries_crispiness = 4 [json_name = "friesCrispiness", (.buf.validate.field) = { ... }</code>
      * @param value The friesCrispiness to set.
      * @return This builder for chaining.
      */
@@ -793,7 +793,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>uint32 fries_crispiness = 4 [json_name = "friesCrispiness"];</code>
+     * <code>uint32 fries_crispiness = 4 [json_name = "friesCrispiness", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearFriesCrispiness() {
@@ -805,7 +805,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object size_ = "";
     /**
-     * <code>string size = 5 [json_name = "size"];</code>
+     * <code>string size = 5 [json_name = "size", (.buf.validate.field) = { ... }</code>
      * @return The size.
      */
     public java.lang.String getSize() {
@@ -821,7 +821,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string size = 5 [json_name = "size"];</code>
+     * <code>string size = 5 [json_name = "size", (.buf.validate.field) = { ... }</code>
      * @return The bytes for size.
      */
     public com.google.protobuf.ByteString
@@ -838,7 +838,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string size = 5 [json_name = "size"];</code>
+     * <code>string size = 5 [json_name = "size", (.buf.validate.field) = { ... }</code>
      * @param value The size to set.
      * @return This builder for chaining.
      */
@@ -851,7 +851,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string size = 5 [json_name = "size"];</code>
+     * <code>string size = 5 [json_name = "size", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearSize() {
@@ -861,7 +861,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string size = 5 [json_name = "size"];</code>
+     * <code>string size = 5 [json_name = "size", (.buf.validate.field) = { ... }</code>
      * @param value The bytes for size to set.
      * @return This builder for chaining.
      */
@@ -877,7 +877,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object comments_ = "";
     /**
-     * <code>string comments = 6 [json_name = "comments"];</code>
+     * <code>string comments = 6 [json_name = "comments", (.buf.validate.field) = { ... }</code>
      * @return The comments.
      */
     public java.lang.String getComments() {
@@ -893,7 +893,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string comments = 6 [json_name = "comments"];</code>
+     * <code>string comments = 6 [json_name = "comments", (.buf.validate.field) = { ... }</code>
      * @return The bytes for comments.
      */
     public com.google.protobuf.ByteString
@@ -910,7 +910,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string comments = 6 [json_name = "comments"];</code>
+     * <code>string comments = 6 [json_name = "comments", (.buf.validate.field) = { ... }</code>
      * @param value The comments to set.
      * @return This builder for chaining.
      */
@@ -923,7 +923,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string comments = 6 [json_name = "comments"];</code>
+     * <code>string comments = 6 [json_name = "comments", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearComments() {
@@ -933,7 +933,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string comments = 6 [json_name = "comments"];</code>
+     * <code>string comments = 6 [json_name = "comments", (.buf.validate.field) = { ... }</code>
      * @param value The bytes for comments to set.
      * @return This builder for chaining.
      */
