@@ -1,4 +1,4 @@
-.PHONY: generate-models install-frontend install-js-backend install-java-backend install-go-backend start-frontend start-js-backend start-java-backend start-go-backend start-all clean help
+.PHONY: generate-models install-frontend install-js-backend install-java-backend install-go-backend start-frontend start-js-backend start-java-backend start-go-backend start-all clean help run-slides-fr run-slides-en
 
 # Load environment variables from .env file
 ifneq (,$(wildcard ./.env))
@@ -20,6 +20,8 @@ help:
 	@echo "  start-all            - Start all services (frontend, JS backend, Java backend, Go backend)"
 	@echo "  clean                - Remove node_modules and package-lock.json"
 	@echo "  help                 - Show this help message"
+	@echo "  run-slides-en        - Run presentation slides in English"
+	@echo "  run-slides-fr        - Run presentation slides in French"
 
 generate-models:
 	@echo "Generating protobuf models..."
@@ -89,3 +91,15 @@ clean:
 	@rm -rf jug-frontend/node_modules
 	@rm -f jug-frontend/package-lock.json
 	@echo "Clean complete!"
+
+run-slides-en:
+	@echo "Creating presentation slides in English..."
+	@npm install -g @slidev/cli
+	@slidev slides/slides-en.md
+	@echo "Presentation slides created successfully!"
+
+run-slides-fr:
+	@echo "Creating presentation slides in French..."
+	@npm install -g @slidev/cli
+	@slidev slides/slides-fr.md
+	@echo "Presentation slides created successfully!"

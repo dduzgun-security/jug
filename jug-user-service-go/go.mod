@@ -4,7 +4,7 @@ go 1.25.5
 
 require (
 	buf.build/go/protovalidate v1.1.0
-	github.com/dduzgun-security/jug/jug-model/jug-model-go v0.0.0-20251210053046-bfcf1485721b
+	github.com/dduzgun-security/jug/jug-model/jug-model-go v0.0.0-20251210070215-4b364a693207
 	google.golang.org/protobuf v1.36.10
 )
 
