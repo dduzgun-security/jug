@@ -1,14 +1,16 @@
 version: v2
 managed:
   enabled: true
+  disable:
+    - module: buf.build/bufbuild/protovalidate
 plugins:
   # Go - keep in jug-model for direct repo reference
   - remote: buf.build/protocolbuffers/go
     out: jug-model-go
     opt:
       - paths=source_relative
-  # Java - output to model package
-  - remote: buf.build/protocolbuffers/java
+  # Java - output to model package (using v25.3 for protovalidate compatibility)
+  - remote: buf.build/protocolbuffers/java:v25.3
     out: jug-model-java/src/main/java
   # JavaScript - output to model package
   - remote: buf.build/bufbuild/es
