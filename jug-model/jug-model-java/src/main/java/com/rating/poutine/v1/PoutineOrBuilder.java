@@ -61,4 +61,16 @@ public interface PoutineOrBuilder extends
    */
   com.google.protobuf.ByteString
       getCommentsBytes();
+
+  /**
+   * <code>string location = 7 [json_name = "location", (.buf.validate.field) = { ... }</code>
+   * @return The location.
+   */
+  java.lang.String getLocation();
+  /**
+   * <code>string location = 7 [json_name = "location", (.buf.validate.field) = { ... }</code>
+   * @return The bytes for location.
+   */
+  com.google.protobuf.ByteString
+      getLocationBytes();
 }

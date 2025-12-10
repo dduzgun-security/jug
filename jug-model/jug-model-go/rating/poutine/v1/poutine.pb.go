@@ -30,6 +30,7 @@ type Poutine struct {
 	FriesCrispiness   uint32                 `protobuf:"varint,4,opt,name=fries_crispiness,json=friesCrispiness,proto3" json:"fries_crispiness,omitempty"`
 	Size              string                 `protobuf:"bytes,5,opt,name=size,proto3" json:"size,omitempty"`
 	Comments          string                 `protobuf:"bytes,6,opt,name=comments,proto3" json:"comments,omitempty"`
+	Location          string                 `protobuf:"bytes,7,opt,name=location,proto3" json:"location,omitempty"`
 	unknownFields     protoimpl.UnknownFields
 	sizeCache         protoimpl.SizeCache
 }
@@ -102,6 +103,13 @@ func (x *Poutine) GetSize() string {
 func (x *Poutine) GetComments() string {
 	if x != nil {
 		return x.Comments
+	}
+	return ""
+}
+
+func (x *Poutine) GetLocation() string {
+	if x != nil {
+		return x.Location
 	}
 	return ""
 }
@@ -206,7 +214,7 @@ var File_rating_poutine_v1_poutine_proto protoreflect.FileDescriptor
 
 const file_rating_poutine_v1_poutine_proto_rawDesc = "" +
 	"\n" +
-	"\x1frating/poutine/v1/poutine.proto\x12\x11rating.poutine.v1\x1a\x1bbuf/validate/validate.proto\"\xca\x02\n" +
+	"\x1frating/poutine/v1/poutine.proto\x12\x11rating.poutine.v1\x1a\x1bbuf/validate/validate.proto\"\xf2\x02\n" +
 	"\aPoutine\x12+\n" +
 	"\n" +
 	"restaurant\x18\x01 \x01(\tB\v\xbaH\b\xc8\x01\x01r\x03\x18\x80\x01R\n" +
@@ -218,7 +226,9 @@ const file_rating_poutine_v1_poutine_proto_rawDesc = "" +
 	"\x10fries_crispiness\x18\x04 \x01(\rB\f\xbaH\t\xc8\x01\x01*\x04\x18\n" +
 	"(\x00R\x0ffriesCrispiness\x12<\n" +
 	"\x04size\x18\x05 \x01(\tB(\xbaH%\xc8\x01\x01r 2\x1e^(Small|Medium|Large|X-Large)$R\x04size\x12'\n" +
-	"\bcomments\x18\x06 \x01(\tB\v\xbaH\b\xc8\x01\x01r\x03\x18\xf4\x03R\bcomments\"F\n" +
+	"\bcomments\x18\x06 \x01(\tB\v\xbaH\b\xc8\x01\x01r\x03\x18\xf4\x03R\bcomments\x12&\n" +
+	"\blocation\x18\a \x01(\tB\n" +
+	"\xbaH\a\xc8\x01\x01r\x02\x18dR\blocation\"F\n" +
 	"\x0ePoutineRequest\x124\n" +
 	"\apoutine\x18\x01 \x01(\v2\x1a.rating.poutine.v1.PoutineR\apoutine\"P\n" +
 	"\x0fPoutineResponse\x12\x18\n" +

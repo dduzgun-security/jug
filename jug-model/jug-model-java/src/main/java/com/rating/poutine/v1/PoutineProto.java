@@ -41,7 +41,7 @@ public final class PoutineProto {
     java.lang.String[] descriptorData = {
       "\n\037rating/poutine/v1/poutine.proto\022\021ratin" +
       "g.poutine.v1\032\033buf/validate/validate.prot" +
-      "o\"\312\002\n\007Poutine\022+\n\nrestaurant\030\001 \001(\tB\013\272H\010r\003" +
+      "o\"\362\002\n\007Poutine\022+\n\nrestaurant\030\001 \001(\tB\013\272H\010r\003" +
       "\030\200\001\310\001\001R\nrestaurant\022;\n\022cheese_squeakiness" +
       "\030\002 \001(\rB\014\272H\t*\004\030\n(\000\310\001\001R\021cheeseSqueakiness\022" +
       "5\n\017gravy_thickness\030\003 \001(\rB\014\272H\t*\004\030\n(\000\310\001\001R\016" +
@@ -49,7 +49,8 @@ public final class PoutineProto {
       "B\014\272H\t*\004\030\n(\000\310\001\001R\017friesCrispiness\022<\n\004size\030" +
       "\005 \001(\tB(\272H%r 2\036^(Small|Medium|Large|X-Lar" +
       "ge)$\310\001\001R\004size\022\'\n\010comments\030\006 \001(\tB\013\272H\010r\003\030\364" +
-      "\003\310\001\001R\010comments\"F\n\016PoutineRequest\0224\n\007pout" +
+      "\003\310\001\001R\010comments\022&\n\010location\030\007 \001(\tB\n\272H\007r\002\030" +
+      "d\310\001\001R\010location\"F\n\016PoutineRequest\0224\n\007pout" +
       "ine\030\001 \001(\0132\032.rating.poutine.v1.PoutineR\007p" +
       "outine\"P\n\017PoutineResponse\022\030\n\007message\030\001 \001" +
       "(\tR\007message\022#\n\raverage_score\030\002 \001(\002R\014aver" +
@@ -71,7 +72,7 @@ public final class PoutineProto {
     internal_static_rating_poutine_v1_Poutine_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_rating_poutine_v1_Poutine_descriptor,
-        new java.lang.String[] { "Restaurant", "CheeseSqueakiness", "GravyThickness", "FriesCrispiness", "Size", "Comments", });
+        new java.lang.String[] { "Restaurant", "CheeseSqueakiness", "GravyThickness", "FriesCrispiness", "Size", "Comments", "Location", });
     internal_static_rating_poutine_v1_PoutineRequest_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_rating_poutine_v1_PoutineRequest_fieldAccessorTable = new
