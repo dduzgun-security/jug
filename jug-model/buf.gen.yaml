@@ -18,5 +18,6 @@ plugins:
     out: jug-model-js
     opt:
       - target=js
+      - import_extension=js
     include_imports: true
     include_wkt: false
