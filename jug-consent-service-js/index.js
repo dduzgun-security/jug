@@ -3,8 +3,12 @@ import bodyParser from 'body-parser';
 import morgan from 'morgan';
 import { consent } from '@dduzgun-security/jug-model';
 import { create, toJson } from '@bufbuild/protobuf';
+import { createValidator } from '@bufbuild/protovalidate';
 
 const PORT = process.env.PORT || 8000;
+
+// Initialize validator
+const validator = createValidator();
 
 express()
     .use(function(req, res, next) {
@@ -22,6 +26,16 @@ express()
                 email: req.body.email,
                 consent: req.body.consent
             });
+
+            // Validate the consent message
+            const validationResult = validator.validate(consent.ConsentSchema, consentModel);
+            if (validationResult.kind !== 'valid') {
+                const errors = validationResult.violations.map(v =>
+                    `${v.fieldPath || v.field || 'unknown field'}: ${v.message}`
+                ).join(', ');
+                const errorMessage = `Validation failed: ${errors}`;
+                return res.status(400).json({ error: errorMessage });
+            }
 
             console.log('Received consent:', toJson(consent.ConsentSchema, consentModel));
 
