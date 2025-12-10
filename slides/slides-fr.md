@@ -17,7 +17,6 @@ mdc: true
 
 ## Simplifier la validation et les modèles distribués avec Buf et Protovalidate
 
-**Application d'évaluation de Poutine 🍟🧀**
 
 ---
 
@@ -27,16 +26,19 @@ mdc: true
 
 <img src="https://avatars.githubusercontent.com/u/59659739?v=4" alt="Profile" class="rounded-xl w-48 flex-shrink-0" />
 
-<div class="flex-1">
+<div class="flex-">
+Deniz Onur Duzgun  
 
 - Product Security @ HashiCorp (maintenant partie d'IBM)
 - Je développe des logiciels et je les challenge avec un regard offensif
-- J'ai créé cette démo pour résoudre des problèmes de synchronisation de modèles
-- Je débogue continuellement le comportement de mon chien 🐶
+- Parcours multi-casquettes 🎩: <code>dev, devops, pentester, cloud & product/application security </code>
+- Je débogue continuellement le comportement de mes chiens 🐶
+- J'adore la poutine 🍟🧀
 
 <div class="mt-6 text-sm opacity-70">
 
-**GitHub:** [github.com/dduzgun-security](https://github.com/dduzgun-security)
+**GitHub:** [github.com/dduzgun-security](https://github.com/dduzgun-security)  
+**LinkedIn:** https://www.linkedin.com/in/deniz-onur-duzgun/
 
 </div>
 
