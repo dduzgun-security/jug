@@ -1,7 +1,8 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const morgan = require('morgan');
-const {consent} = require('@dduzgun-security/jug-model');
+import express from 'express';
+import bodyParser from 'body-parser';
+import morgan from 'morgan';
+import { consent } from '@dduzgun-security/jug-model';
+import { create, toJson } from '@bufbuild/protobuf';
 
 const PORT = process.env.PORT || 8000;
 
@@ -17,18 +18,20 @@ express()
     .post('/consent', (req, res) => {
         try {
             // Create Consent model from raw HTTP JSON
-            const consentModel = new consent.Consent();
-            consentModel.setEmail(req.body.email);
-            consentModel.setConsent(req.body.consent);
+            const consentModel = create(consent.ConsentSchema, {
+                email: req.body.email,
+                consent: req.body.consent
+            });
 
-            console.log('Received consent:', consentModel.toObject());
+            console.log('Received consent:', toJson(consent.ConsentSchema, consentModel));
 
             // Create ConsentResponse model
-            const consentResponse = new consent.ConsentResponse();
-            consentResponse.setMessage('Consent received successfully');
+            const consentResponse = create(consent.ConsentResponseSchema, {
+                message: 'Consent received successfully'
+            });
 
-            // Return response as plain object
-            res.status(200).json(consentResponse.toObject());
+            // Return response as JSON
+            res.status(200).json(toJson(consent.ConsentResponseSchema, consentResponse));
         } catch (error) {
             console.error('Error processing consent request:', error);
             res.status(400).json({ error: 'Invalid consent request' });

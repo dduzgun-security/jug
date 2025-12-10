@@ -13,6 +13,7 @@ plugins:
   # Java - output to model package (using v25.3 for protovalidate compatibility)
   - remote: buf.build/protocolbuffers/java:v25.3
     out: jug-model-java/src/main/java
+    include_imports: true
   # JavaScript - output to model package (including protovalidate imports)
   - remote: buf.build/bufbuild/es
     out: jug-model-js
