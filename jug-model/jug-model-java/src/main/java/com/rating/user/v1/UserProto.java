@@ -64,7 +64,7 @@ public final class UserProto {
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          build.buf.validate.ValidateProto.getDescriptor(),
+          com.buf.validate.ValidateProto.getDescriptor(),
         });
     internal_static_rating_user_v1_User_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -86,11 +86,11 @@ public final class UserProto {
         new java.lang.String[] { "Message", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
-    registry.add(build.buf.validate.ValidateProto.field);
-    registry.add(build.buf.validate.ValidateProto.message);
+    registry.add(com.buf.validate.ValidateProto.field);
+    registry.add(com.buf.validate.ValidateProto.message);
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
-    build.buf.validate.ValidateProto.getDescriptor();
+    com.buf.validate.ValidateProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

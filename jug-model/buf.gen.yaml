@@ -3,6 +3,7 @@ managed:
   enabled: true
   disable:
     - module: buf.build/bufbuild/protovalidate
+      path: buf/validate/priv
 plugins:
   # Go - keep in jug-model for direct repo reference
   - remote: buf.build/protocolbuffers/go
@@ -12,13 +13,10 @@ plugins:
   # Java - output to model package (using v25.3 for protovalidate compatibility)
   - remote: buf.build/protocolbuffers/java:v25.3
     out: jug-model-java/src/main/java
-  # JavaScript - output to model package
+  # JavaScript - output to model package (including protovalidate imports)
   - remote: buf.build/bufbuild/es
     out: jug-model-js
     opt:
       - target=js
-  # JavaScript protovalidate
-  # - remote: buf.build/bufbuild/protovalidate-es
-  #   out: jug-model-js
-  #   opt:
-  #     - target=ts
+    include_imports: true
+    include_wkt: false
