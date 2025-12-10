@@ -51,22 +51,31 @@ public final class UserProto extends com.google.protobuf.GeneratedFile {
   static {
     java.lang.String[] descriptorData = {
       "\n\031rating/user/v1/user.proto\022\016rating.user" +
-      ".v1\"\245\001\n\004User\022\035\n\nfirst_name\030\001 \001(\tR\tfirstN" +
-      "ame\022\033\n\tlast_name\030\002 \001(\tR\010lastName\022\024\n\005emai" +
-      "l\030\003 \001(\tR\005email\022\020\n\003age\030\004 \001(\rR\003age\022!\n\014phon" +
-      "e_number\030\005 \001(\tR\013phoneNumber\022\026\n\006status\030\006 " +
-      "\001(\tR\006status\"7\n\013UserRequest\022(\n\004user\030\001 \001(\013" +
-      "2\024.rating.user.v1.UserR\004user\"(\n\014UserResp" +
-      "onse\022\030\n\007message\030\001 \001(\tR\007messageB\307\001\n\022com.r" +
-      "ating.user.v1B\tUserProtoP\001ZLgithub.com/d" +
-      "duzgun-security/jug/jug-model/jug-model-" +
-      "go/rating/user/v1;userv1\242\002\003RUX\252\002\016Rating." +
-      "User.V1\312\002\016Rating\\User\\V1\342\002\032Rating\\User\\V" +
-      "1\\GPBMetadata\352\002\020Rating::User::V1b\006proto3"
+      ".v1\032\033buf/validate/validate.proto\"\244\003\n\004Use" +
+      "r\022)\n\nfirst_name\030\001 \001(\tB\n\272H\007r\002\030@\310\001\001R\tfirst" +
+      "Name\022\'\n\tlast_name\030\002 \001(\tB\n\272H\007r\002\030@\310\001\001R\010las" +
+      "tName\022 \n\005email\030\003 \001(\tB\n\272H\007r\002`\001\310\001\001R\005email\022" +
+      "\035\n\003age\030\004 \001(\rB\013\272H\010*\003\030\226\001\310\001\001R\003age\022=\n\014phone_" +
+      "number\030\005 \001(\tB\032\272H\027r\0222\020^\\+\\d{1,3}\\d{9}$\310\001\001" +
+      "R\013phoneNumber\022=\n\006status\030\006 \001(\tB%\272H\"r\0352\033^(" +
+      "Active|Inactive|Premium)$\310\001\001R\006status:\210\001\272" +
+      "H\204\001\032\201\001\n\035first_name_requires_last_name\0222l" +
+      "ast_name must be present if first_name i" +
+      "s present\032,!has(this.first_name) || has(" +
+      "this.last_name)\"7\n\013UserRequest\022(\n\004user\030\001" +
+      " \001(\0132\024.rating.user.v1.UserR\004user\"(\n\014User" +
+      "Response\022\030\n\007message\030\001 \001(\tR\007messageB\307\001\n\022c" +
+      "om.rating.user.v1B\tUserProtoP\001ZLgithub.c" +
+      "om/dduzgun-security/jug/jug-model/jug-mo" +
+      "del-go/rating/user/v1;userv1\242\002\003RUX\252\002\016Rat" +
+      "ing.User.V1\312\002\016Rating\\User\\V1\342\002\032Rating\\Us" +
+      "er\\V1\\GPBMetadata\352\002\020Rating::User::V1b\006pr" +
+      "oto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          com.buf.validate.ValidateProto.getDescriptor(),
         });
     internal_static_rating_user_v1_User_descriptor =
       getDescriptor().getMessageType(0);
@@ -87,6 +96,13 @@ public final class UserProto extends com.google.protobuf.GeneratedFile {
         internal_static_rating_user_v1_UserResponse_descriptor,
         new java.lang.String[] { "Message", });
     descriptor.resolveAllFeaturesImmutable();
+    com.buf.validate.ValidateProto.getDescriptor();
+    com.google.protobuf.ExtensionRegistry registry =
+        com.google.protobuf.ExtensionRegistry.newInstance();
+    registry.add(com.buf.validate.ValidateProto.field);
+    registry.add(com.buf.validate.ValidateProto.message);
+    com.google.protobuf.Descriptors.FileDescriptor
+        .internalUpdateFileDescriptor(descriptor, registry);
   }
 
   // @@protoc_insertion_point(outer_class_scope)

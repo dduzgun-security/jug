@@ -11,66 +11,66 @@ public interface UserOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string first_name = 1 [json_name = "firstName"];</code>
+   * <code>string first_name = 1 [json_name = "firstName", (.buf.validate.field) = { ... }</code>
    * @return The firstName.
    */
   java.lang.String getFirstName();
   /**
-   * <code>string first_name = 1 [json_name = "firstName"];</code>
+   * <code>string first_name = 1 [json_name = "firstName", (.buf.validate.field) = { ... }</code>
    * @return The bytes for firstName.
    */
   com.google.protobuf.ByteString
       getFirstNameBytes();
 
   /**
-   * <code>string last_name = 2 [json_name = "lastName"];</code>
+   * <code>string last_name = 2 [json_name = "lastName", (.buf.validate.field) = { ... }</code>
    * @return The lastName.
    */
   java.lang.String getLastName();
   /**
-   * <code>string last_name = 2 [json_name = "lastName"];</code>
+   * <code>string last_name = 2 [json_name = "lastName", (.buf.validate.field) = { ... }</code>
    * @return The bytes for lastName.
    */
   com.google.protobuf.ByteString
       getLastNameBytes();
 
   /**
-   * <code>string email = 3 [json_name = "email"];</code>
+   * <code>string email = 3 [json_name = "email", (.buf.validate.field) = { ... }</code>
    * @return The email.
    */
   java.lang.String getEmail();
   /**
-   * <code>string email = 3 [json_name = "email"];</code>
+   * <code>string email = 3 [json_name = "email", (.buf.validate.field) = { ... }</code>
    * @return The bytes for email.
    */
   com.google.protobuf.ByteString
       getEmailBytes();
 
   /**
-   * <code>uint32 age = 4 [json_name = "age"];</code>
+   * <code>uint32 age = 4 [json_name = "age", (.buf.validate.field) = { ... }</code>
    * @return The age.
    */
   int getAge();
 
   /**
-   * <code>string phone_number = 5 [json_name = "phoneNumber"];</code>
+   * <code>string phone_number = 5 [json_name = "phoneNumber", (.buf.validate.field) = { ... }</code>
    * @return The phoneNumber.
    */
   java.lang.String getPhoneNumber();
   /**
-   * <code>string phone_number = 5 [json_name = "phoneNumber"];</code>
+   * <code>string phone_number = 5 [json_name = "phoneNumber", (.buf.validate.field) = { ... }</code>
    * @return The bytes for phoneNumber.
    */
   com.google.protobuf.ByteString
       getPhoneNumberBytes();
 
   /**
-   * <code>string status = 6 [json_name = "status"];</code>
+   * <code>string status = 6 [json_name = "status", (.buf.validate.field) = { ... }</code>
    * @return The status.
    */
   java.lang.String getStatus();
   /**
-   * <code>string status = 6 [json_name = "status"];</code>
+   * <code>string status = 6 [json_name = "status", (.buf.validate.field) = { ... }</code>
    * @return The bytes for status.
    */
   com.google.protobuf.ByteString

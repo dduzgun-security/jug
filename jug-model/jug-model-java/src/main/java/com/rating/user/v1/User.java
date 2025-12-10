@@ -52,7 +52,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object firstName_ = "";
   /**
-   * <code>string first_name = 1 [json_name = "firstName"];</code>
+   * <code>string first_name = 1 [json_name = "firstName", (.buf.validate.field) = { ... }</code>
    * @return The firstName.
    */
   @java.lang.Override
@@ -69,7 +69,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string first_name = 1 [json_name = "firstName"];</code>
+   * <code>string first_name = 1 [json_name = "firstName", (.buf.validate.field) = { ... }</code>
    * @return The bytes for firstName.
    */
   @java.lang.Override
@@ -91,7 +91,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object lastName_ = "";
   /**
-   * <code>string last_name = 2 [json_name = "lastName"];</code>
+   * <code>string last_name = 2 [json_name = "lastName", (.buf.validate.field) = { ... }</code>
    * @return The lastName.
    */
   @java.lang.Override
@@ -108,7 +108,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string last_name = 2 [json_name = "lastName"];</code>
+   * <code>string last_name = 2 [json_name = "lastName", (.buf.validate.field) = { ... }</code>
    * @return The bytes for lastName.
    */
   @java.lang.Override
@@ -130,7 +130,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object email_ = "";
   /**
-   * <code>string email = 3 [json_name = "email"];</code>
+   * <code>string email = 3 [json_name = "email", (.buf.validate.field) = { ... }</code>
    * @return The email.
    */
   @java.lang.Override
@@ -147,7 +147,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string email = 3 [json_name = "email"];</code>
+   * <code>string email = 3 [json_name = "email", (.buf.validate.field) = { ... }</code>
    * @return The bytes for email.
    */
   @java.lang.Override
@@ -168,7 +168,7 @@ private static final long serialVersionUID = 0L;
   public static final int AGE_FIELD_NUMBER = 4;
   private int age_ = 0;
   /**
-   * <code>uint32 age = 4 [json_name = "age"];</code>
+   * <code>uint32 age = 4 [json_name = "age", (.buf.validate.field) = { ... }</code>
    * @return The age.
    */
   @java.lang.Override
@@ -180,7 +180,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object phoneNumber_ = "";
   /**
-   * <code>string phone_number = 5 [json_name = "phoneNumber"];</code>
+   * <code>string phone_number = 5 [json_name = "phoneNumber", (.buf.validate.field) = { ... }</code>
    * @return The phoneNumber.
    */
   @java.lang.Override
@@ -197,7 +197,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string phone_number = 5 [json_name = "phoneNumber"];</code>
+   * <code>string phone_number = 5 [json_name = "phoneNumber", (.buf.validate.field) = { ... }</code>
    * @return The bytes for phoneNumber.
    */
   @java.lang.Override
@@ -219,7 +219,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object status_ = "";
   /**
-   * <code>string status = 6 [json_name = "status"];</code>
+   * <code>string status = 6 [json_name = "status", (.buf.validate.field) = { ... }</code>
    * @return The status.
    */
   @java.lang.Override
@@ -236,7 +236,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string status = 6 [json_name = "status"];</code>
+   * <code>string status = 6 [json_name = "status", (.buf.validate.field) = { ... }</code>
    * @return The bytes for status.
    */
   @java.lang.Override
@@ -669,7 +669,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object firstName_ = "";
     /**
-     * <code>string first_name = 1 [json_name = "firstName"];</code>
+     * <code>string first_name = 1 [json_name = "firstName", (.buf.validate.field) = { ... }</code>
      * @return The firstName.
      */
     public java.lang.String getFirstName() {
@@ -685,7 +685,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string first_name = 1 [json_name = "firstName"];</code>
+     * <code>string first_name = 1 [json_name = "firstName", (.buf.validate.field) = { ... }</code>
      * @return The bytes for firstName.
      */
     public com.google.protobuf.ByteString
@@ -702,7 +702,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string first_name = 1 [json_name = "firstName"];</code>
+     * <code>string first_name = 1 [json_name = "firstName", (.buf.validate.field) = { ... }</code>
      * @param value The firstName to set.
      * @return This builder for chaining.
      */
@@ -715,7 +715,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string first_name = 1 [json_name = "firstName"];</code>
+     * <code>string first_name = 1 [json_name = "firstName", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearFirstName() {
@@ -725,7 +725,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string first_name = 1 [json_name = "firstName"];</code>
+     * <code>string first_name = 1 [json_name = "firstName", (.buf.validate.field) = { ... }</code>
      * @param value The bytes for firstName to set.
      * @return This builder for chaining.
      */
@@ -741,7 +741,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object lastName_ = "";
     /**
-     * <code>string last_name = 2 [json_name = "lastName"];</code>
+     * <code>string last_name = 2 [json_name = "lastName", (.buf.validate.field) = { ... }</code>
      * @return The lastName.
      */
     public java.lang.String getLastName() {
@@ -757,7 +757,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string last_name = 2 [json_name = "lastName"];</code>
+     * <code>string last_name = 2 [json_name = "lastName", (.buf.validate.field) = { ... }</code>
      * @return The bytes for lastName.
      */
     public com.google.protobuf.ByteString
@@ -774,7 +774,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string last_name = 2 [json_name = "lastName"];</code>
+     * <code>string last_name = 2 [json_name = "lastName", (.buf.validate.field) = { ... }</code>
      * @param value The lastName to set.
      * @return This builder for chaining.
      */
@@ -787,7 +787,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string last_name = 2 [json_name = "lastName"];</code>
+     * <code>string last_name = 2 [json_name = "lastName", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearLastName() {
@@ -797,7 +797,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string last_name = 2 [json_name = "lastName"];</code>
+     * <code>string last_name = 2 [json_name = "lastName", (.buf.validate.field) = { ... }</code>
      * @param value The bytes for lastName to set.
      * @return This builder for chaining.
      */
@@ -813,7 +813,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object email_ = "";
     /**
-     * <code>string email = 3 [json_name = "email"];</code>
+     * <code>string email = 3 [json_name = "email", (.buf.validate.field) = { ... }</code>
      * @return The email.
      */
     public java.lang.String getEmail() {
@@ -829,7 +829,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string email = 3 [json_name = "email"];</code>
+     * <code>string email = 3 [json_name = "email", (.buf.validate.field) = { ... }</code>
      * @return The bytes for email.
      */
     public com.google.protobuf.ByteString
@@ -846,7 +846,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string email = 3 [json_name = "email"];</code>
+     * <code>string email = 3 [json_name = "email", (.buf.validate.field) = { ... }</code>
      * @param value The email to set.
      * @return This builder for chaining.
      */
@@ -859,7 +859,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string email = 3 [json_name = "email"];</code>
+     * <code>string email = 3 [json_name = "email", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearEmail() {
@@ -869,7 +869,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string email = 3 [json_name = "email"];</code>
+     * <code>string email = 3 [json_name = "email", (.buf.validate.field) = { ... }</code>
      * @param value The bytes for email to set.
      * @return This builder for chaining.
      */
@@ -885,7 +885,7 @@ private static final long serialVersionUID = 0L;
 
     private int age_ ;
     /**
-     * <code>uint32 age = 4 [json_name = "age"];</code>
+     * <code>uint32 age = 4 [json_name = "age", (.buf.validate.field) = { ... }</code>
      * @return The age.
      */
     @java.lang.Override
@@ -893,7 +893,7 @@ private static final long serialVersionUID = 0L;
       return age_;
     }
     /**
-     * <code>uint32 age = 4 [json_name = "age"];</code>
+     * <code>uint32 age = 4 [json_name = "age", (.buf.validate.field) = { ... }</code>
      * @param value The age to set.
      * @return This builder for chaining.
      */
@@ -905,7 +905,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>uint32 age = 4 [json_name = "age"];</code>
+     * <code>uint32 age = 4 [json_name = "age", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearAge() {
@@ -917,7 +917,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object phoneNumber_ = "";
     /**
-     * <code>string phone_number = 5 [json_name = "phoneNumber"];</code>
+     * <code>string phone_number = 5 [json_name = "phoneNumber", (.buf.validate.field) = { ... }</code>
      * @return The phoneNumber.
      */
     public java.lang.String getPhoneNumber() {
@@ -933,7 +933,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string phone_number = 5 [json_name = "phoneNumber"];</code>
+     * <code>string phone_number = 5 [json_name = "phoneNumber", (.buf.validate.field) = { ... }</code>
      * @return The bytes for phoneNumber.
      */
     public com.google.protobuf.ByteString
@@ -950,7 +950,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string phone_number = 5 [json_name = "phoneNumber"];</code>
+     * <code>string phone_number = 5 [json_name = "phoneNumber", (.buf.validate.field) = { ... }</code>
      * @param value The phoneNumber to set.
      * @return This builder for chaining.
      */
@@ -963,7 +963,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string phone_number = 5 [json_name = "phoneNumber"];</code>
+     * <code>string phone_number = 5 [json_name = "phoneNumber", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearPhoneNumber() {
@@ -973,7 +973,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string phone_number = 5 [json_name = "phoneNumber"];</code>
+     * <code>string phone_number = 5 [json_name = "phoneNumber", (.buf.validate.field) = { ... }</code>
      * @param value The bytes for phoneNumber to set.
      * @return This builder for chaining.
      */
@@ -989,7 +989,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object status_ = "";
     /**
-     * <code>string status = 6 [json_name = "status"];</code>
+     * <code>string status = 6 [json_name = "status", (.buf.validate.field) = { ... }</code>
      * @return The status.
      */
     public java.lang.String getStatus() {
@@ -1005,7 +1005,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string status = 6 [json_name = "status"];</code>
+     * <code>string status = 6 [json_name = "status", (.buf.validate.field) = { ... }</code>
      * @return The bytes for status.
      */
     public com.google.protobuf.ByteString
@@ -1022,7 +1022,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string status = 6 [json_name = "status"];</code>
+     * <code>string status = 6 [json_name = "status", (.buf.validate.field) = { ... }</code>
      * @param value The status to set.
      * @return This builder for chaining.
      */
@@ -1035,7 +1035,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string status = 6 [json_name = "status"];</code>
+     * <code>string status = 6 [json_name = "status", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearStatus() {
@@ -1045,7 +1045,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string status = 6 [json_name = "status"];</code>
+     * <code>string status = 6 [json_name = "status", (.buf.validate.field) = { ... }</code>
      * @param value The bytes for status to set.
      * @return This builder for chaining.
      */

@@ -7,6 +7,7 @@
 package userv1
 
 import (
+	_ "buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go/buf/validate"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -197,15 +198,19 @@ var File_rating_user_v1_user_proto protoreflect.FileDescriptor
 
 const file_rating_user_v1_user_proto_rawDesc = "" +
 	"\n" +
-	"\x19rating/user/v1/user.proto\x12\x0erating.user.v1\"\xa5\x01\n" +
-	"\x04User\x12\x1d\n" +
+	"\x19rating/user/v1/user.proto\x12\x0erating.user.v1\x1a\x1bbuf/validate/validate.proto\"\xa4\x03\n" +
+	"\x04User\x12)\n" +
 	"\n" +
-	"first_name\x18\x01 \x01(\tR\tfirstName\x12\x1b\n" +
-	"\tlast_name\x18\x02 \x01(\tR\blastName\x12\x14\n" +
-	"\x05email\x18\x03 \x01(\tR\x05email\x12\x10\n" +
-	"\x03age\x18\x04 \x01(\rR\x03age\x12!\n" +
-	"\fphone_number\x18\x05 \x01(\tR\vphoneNumber\x12\x16\n" +
-	"\x06status\x18\x06 \x01(\tR\x06status\"7\n" +
+	"first_name\x18\x01 \x01(\tB\n" +
+	"\xbaH\a\xc8\x01\x01r\x02\x18@R\tfirstName\x12'\n" +
+	"\tlast_name\x18\x02 \x01(\tB\n" +
+	"\xbaH\a\xc8\x01\x01r\x02\x18@R\blastName\x12 \n" +
+	"\x05email\x18\x03 \x01(\tB\n" +
+	"\xbaH\a\xc8\x01\x01r\x02`\x01R\x05email\x12\x1d\n" +
+	"\x03age\x18\x04 \x01(\rB\v\xbaH\b\xc8\x01\x01*\x03\x18\x96\x01R\x03age\x12=\n" +
+	"\fphone_number\x18\x05 \x01(\tB\x1a\xbaH\x17\xc8\x01\x01r\x122\x10^\\+\\d{1,3}\\d{9}$R\vphoneNumber\x12=\n" +
+	"\x06status\x18\x06 \x01(\tB%\xbaH\"\xc8\x01\x01r\x1d2\x1b^(Active|Inactive|Premium)$R\x06status:\x88\x01\xbaH\x84\x01\x1a\x81\x01\n" +
+	"\x1dfirst_name_requires_last_name\x122last_name must be present if first_name is present\x1a,!has(this.first_name) || has(this.last_name)\"7\n" +
 	"\vUserRequest\x12(\n" +
 	"\x04user\x18\x01 \x01(\v2\x14.rating.user.v1.UserR\x04user\"(\n" +
 	"\fUserResponse\x12\x18\n" +

@@ -23,6 +23,7 @@ help:
 
 generate-models:
 	@echo "Generating protobuf models..."
+	@cd jug-model/proto && buf dep update
 	@cd jug-model && buf generate
 	@echo "Protobuf models generated successfully!"
 
@@ -81,7 +82,7 @@ start-go-backend: install-go-backend
 start-all: install-frontend install-js-backend install-java-backend install-go-backend
 	@echo "Starting all services..."
 	@$(MAKE) -j4 start-frontend start-js-backend start-java-backend start-go-backend
-	
+
 
 clean:
 	@echo "Cleaning frontend dependencies..."

@@ -25,6 +25,11 @@
             <artifactId>protobuf-java</artifactId>
             <version>${protobuf.version}</version>
         </dependency>
+        <dependency>
+            <groupId>build.buf</groupId>
+            <artifactId>protovalidate</artifactId>
+            <version>1.0.1</version>
+        </dependency>
     </dependencies>
 
     <distributionManagement>

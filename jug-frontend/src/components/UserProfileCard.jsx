@@ -27,8 +27,8 @@ const CalendarIcon = (props) => (
 const UserProfileCard = ({ userData, userSet, onInputChange, onSubmit, onEdit }) => {
   return (
     <div className="bg-white rounded-2xl shadow-xl p-6 sticky top-8 transition-all duration-300 hover:shadow-2xl">
-      <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full mx-auto mb-4 shadow-lg">
-        <UserIcon className="w-6 h-6 text-white" />
+      <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full mx-auto mb-4 shadow-lg">
+        <UserIcon className="w-8 h-8 text-white" />
       </div>
 
       <h2 className="text-xl font-bold text-gray-800 text-center mb-6">User Profile</h2>

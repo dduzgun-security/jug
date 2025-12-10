@@ -11,7 +11,12 @@ plugins:
   - remote: buf.build/protocolbuffers/java
     out: jug-model-java/src/main/java
   # JavaScript - output to model package
-  - remote: buf.build/protocolbuffers/js
+  - remote: buf.build/bufbuild/es
     out: jug-model-js
     opt:
-      - import_style=commonjs
+      - target=js
+  # JavaScript protovalidate
+  # - remote: buf.build/bufbuild/protovalidate-es
+  #   out: jug-model-js
+  #   opt:
+  #     - target=ts
