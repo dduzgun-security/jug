@@ -17,7 +17,7 @@ function App() {
     email: '',
     age: '',
     phoneNumber: '',
-    status: 'active',
+    status: 'Active',
     // Rating data
     restaurant: '',
     cheeseSqueakiness: 5,
@@ -199,6 +199,8 @@ function App() {
                         value={formData.age}
                         onChange={handleInputChange}
                         required
+                        min="1"
+                        max="150"
                         className="w-full px-2 py-1.5 text-xs border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all"
                         placeholder="25"
                       />
@@ -223,9 +225,9 @@ function App() {
                         onChange={handleInputChange}
                         className="w-full px-2 py-1.5 text-xs border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all bg-white"
                       >
-                        <option value="active">Active</option>
-                        <option value="inactive">Inactive</option>
-                        <option value="premium">Premium</option>
+                        <option value="Active">Active</option>
+                        <option value="Inactive">Inactive</option>
+                        <option value="Premium">Premium</option>
                       </select>
                     </div>
                     <div className="col-span-3">
