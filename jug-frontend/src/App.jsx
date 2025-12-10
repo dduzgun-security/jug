@@ -23,7 +23,7 @@ function App() {
     cheeseSqueakiness: 5,
     gravyThickness: 5,
     friesCrispiness: 5,
-    size: 'medium',
+    size: 'Medium',
     comments: '',
     // Consent data
     consent: false
@@ -75,6 +75,7 @@ function App() {
 
       console.log('User Model:', user)
       console.log('Poutine Rating Model:', poutineRating)
+      console.log('Poutine size value:', `"${formData.size}"`, 'length:', formData.size.length, 'charCodes:', [...formData.size].map(c => c.charCodeAt(0)))
       console.log('Consent Model:', consentModel)
 
       // Validate models using protovalidate
@@ -82,19 +83,40 @@ function App() {
 
       const userValidation = validator.validate(UserSchema, user)
       if (userValidation.kind !== 'valid') {
-        const errors = userValidation.violations.map(v => `${v.fieldPath}: ${v.message}`).join(', ')
+        console.log('User validation violations:', userValidation.violations.map(v => ({
+          fieldPath: v.fieldPath,
+          field: v.field,
+          message: v.message,
+        })))
+        const errors = userValidation.violations.map(v =>
+          `${v.fieldPath || v.field || 'unknown field'}: ${v.message}`
+        ).join(', ')
         throw new Error(`User validation failed: ${errors}`)
       }
 
       const poutineValidation = validator.validate(PoutineSchema, poutineRating)
       if (poutineValidation.kind !== 'valid') {
-        const errors = poutineValidation.violations.map(v => `${v.fieldPath}: ${v.message}`).join(', ')
+        console.log('Poutine validation violations:', poutineValidation.violations.map(v => ({
+          fieldPath: v.fieldPath,
+          field: v.field,
+          message: v.message,
+        })))
+        const errors = poutineValidation.violations.map(v =>
+          `${v.fieldPath || v.field || 'unknown field'}: ${v.message}`
+        ).join(', ')
         throw new Error(`Poutine validation failed: ${errors}`)
       }
 
       const consentValidation = validator.validate(ConsentSchema, consentModel)
       if (consentValidation.kind !== 'valid') {
-        const errors = consentValidation.violations.map(v => `${v.fieldPath}: ${v.message}`).join(', ')
+        console.log('Consent validation violations:', consentValidation.violations.map(v => ({
+          fieldPath: v.fieldPath,
+          field: v.field,
+          message: v.message,
+        })))
+        const errors = consentValidation.violations.map(v =>
+          `${v.fieldPath || v.field || 'unknown field'}: ${v.message}`
+        ).join(', ')
         throw new Error(`Consent validation failed: ${errors}`)
       }
 
@@ -301,10 +323,10 @@ function App() {
                         onChange={handleInputChange}
                         className="w-full px-2 py-1.5 text-xs border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all bg-white"
                       >
-                        <option value="small">Small</option>
-                        <option value="medium">Medium</option>
-                        <option value="large">Large</option>
-                        <option value="xlarge">X-Large</option>
+                        <option value="Small">Small</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Large">Large</option>
+                        <option value="X-Large">X-Large</option>
                       </select>
                     </div>
 
