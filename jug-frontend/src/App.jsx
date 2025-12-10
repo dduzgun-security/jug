@@ -174,7 +174,7 @@ function App() {
                         name="firstName"
                         value={formData.firstName}
                         onChange={handleInputChange}
-                        required
+                        // required
                         className="w-full px-2 py-1.5 text-xs border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all"
                         placeholder="John"
                       />
@@ -186,7 +186,7 @@ function App() {
                         name="lastName"
                         value={formData.lastName}
                         onChange={handleInputChange}
-                        required
+                        // required
                         className="w-full px-2 py-1.5 text-xs border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all"
                         placeholder="Doe"
                       />
@@ -198,9 +198,9 @@ function App() {
                         name="age"
                         value={formData.age}
                         onChange={handleInputChange}
-                        required
-                        min="1"
-                        max="150"
+                        // required
+                        // min="1"
+                        // max="150"
                         className="w-full px-2 py-1.5 text-xs border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all"
                         placeholder="25"
                       />
@@ -208,11 +208,11 @@ function App() {
                     <div className="col-span-2">
                       <label className="block text-[10px] font-semibold text-gray-700 mb-1">Email</label>
                       <input
-                        type="email"
+                        // type="email"
                         name="email"
                         value={formData.email}
                         onChange={handleInputChange}
-                        required
+                        // required
                         className="w-full px-2 py-1.5 text-xs border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all"
                         placeholder="john@example.com"
                       />
@@ -233,11 +233,11 @@ function App() {
                     <div className="col-span-3">
                       <label className="block text-[10px] font-semibold text-gray-700 mb-1">Phone</label>
                       <input
-                        type="tel"
+                        // type="tel"
                         name="phoneNumber"
                         value={formData.phoneNumber}
                         onChange={handleInputChange}
-                        required
+                        // required
                         className="w-full px-2 py-1.5 text-xs border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all"
                         placeholder="+1 234 567 8900"
                       />

@@ -40,26 +40,26 @@ public final class UserProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\031rating/user/v1/user.proto\022\016rating.user" +
-      ".v1\032\033buf/validate/validate.proto\"\256\003\n\004Use" +
+      ".v1\032\033buf/validate/validate.proto\"\260\003\n\004Use" +
       "r\022)\n\nfirst_name\030\001 \001(\tB\n\272H\007r\002\030@\310\001\001R\tfirst" +
       "Name\022\'\n\tlast_name\030\002 \001(\tB\n\272H\007r\002\030@\310\001\001R\010las" +
       "tName\022 \n\005email\030\003 \001(\tB\n\272H\007r\002`\001\310\001\001R\005email\022" +
-      "\035\n\003age\030\004 \001(\rB\013\272H\010*\003\030\226\001\310\001\001R\003age\022G\n\014phone_" +
-      "number\030\005 \001(\tB$\272H!r\0342\032^(\\+\\d{1,3}[\\s-]?)?" +
-      "\\d{10}$\310\001\001R\013phoneNumber\022=\n\006status\030\006 \001(\tB" +
-      "%\272H\"r\0352\033^(Active|Inactive|Premium)$\310\001\001R\006" +
-      "status:\210\001\272H\204\001\032\201\001\n\035first_name_requires_la" +
-      "st_name\0222last_name must be present if fi" +
-      "rst_name is present\032,!has(this.first_nam" +
-      "e) || has(this.last_name)\"7\n\013UserRequest" +
-      "\022(\n\004user\030\001 \001(\0132\024.rating.user.v1.UserR\004us" +
-      "er\"(\n\014UserResponse\022\030\n\007message\030\001 \001(\tR\007mes" +
-      "sageB\307\001\n\022com.rating.user.v1B\tUserProtoP\001" +
-      "ZLgithub.com/dduzgun-security/jug/jug-mo" +
-      "del/jug-model-go/rating/user/v1;userv1\242\002" +
-      "\003RUX\252\002\016Rating.User.V1\312\002\016Rating\\User\\V1\342\002" +
-      "\032Rating\\User\\V1\\GPBMetadata\352\002\020Rating::Us" +
-      "er::V1b\006proto3"
+      "\037\n\003age\030\004 \001(\rB\r\272H\n*\005\030\226\001(\000\310\001\001R\003age\022G\n\014phon" +
+      "e_number\030\005 \001(\tB$\272H!r\0342\032^(\\+\\d{1,3}[\\s-]?" +
+      ")?\\d{10}$\310\001\001R\013phoneNumber\022=\n\006status\030\006 \001(" +
+      "\tB%\272H\"r\0352\033^(Active|Inactive|Premium)$\310\001\001" +
+      "R\006status:\210\001\272H\204\001\032\201\001\n\035first_name_requires_" +
+      "last_name\0222last_name must be present if " +
+      "first_name is present\032,!has(this.first_n" +
+      "ame) || has(this.last_name)\"7\n\013UserReque" +
+      "st\022(\n\004user\030\001 \001(\0132\024.rating.user.v1.UserR\004" +
+      "user\"(\n\014UserResponse\022\030\n\007message\030\001 \001(\tR\007m" +
+      "essageB\307\001\n\022com.rating.user.v1B\tUserProto" +
+      "P\001ZLgithub.com/dduzgun-security/jug/jug-" +
+      "model/jug-model-go/rating/user/v1;userv1" +
+      "\242\002\003RUX\252\002\016Rating.User.V1\312\002\016Rating\\User\\V1" +
+      "\342\002\032Rating\\User\\V1\\GPBMetadata\352\002\020Rating::" +
+      "User::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
