@@ -3,6 +3,7 @@ import './App.css'
 import RangeSlider from './components/RangeSlider'
 import RatingCard from './components/RatingCard'
 import { create } from '@bufbuild/protobuf'
+import { createValidator } from '@bufbuild/protovalidate'
 import { UserSchema } from '@dduzgun-security/jug-model/rating/user/v1/user_pb.js'
 import { PoutineSchema } from '@dduzgun-security/jug-model/rating/poutine/v1/poutine_pb.js'
 import { ConsentSchema } from '@dduzgun-security/jug-model/rating/consent/v1/consent_pb.js'
@@ -75,6 +76,29 @@ function App() {
       console.log('User Model:', user)
       console.log('Poutine Rating Model:', poutineRating)
       console.log('Consent Model:', consentModel)
+
+      // Validate models using protovalidate
+      const validator = createValidator()
+
+      const userValidation = validator.validate(UserSchema, user)
+      if (userValidation.kind !== 'valid') {
+        const errors = userValidation.violations.map(v => `${v.fieldPath}: ${v.message}`).join(', ')
+        throw new Error(`User validation failed: ${errors}`)
+      }
+
+      const poutineValidation = validator.validate(PoutineSchema, poutineRating)
+      if (poutineValidation.kind !== 'valid') {
+        const errors = poutineValidation.violations.map(v => `${v.fieldPath}: ${v.message}`).join(', ')
+        throw new Error(`Poutine validation failed: ${errors}`)
+      }
+
+      const consentValidation = validator.validate(ConsentSchema, consentModel)
+      if (consentValidation.kind !== 'valid') {
+        const errors = consentValidation.violations.map(v => `${v.fieldPath}: ${v.message}`).join(', ')
+        throw new Error(`Consent validation failed: ${errors}`)
+      }
+
+      console.log('All models validated successfully!')
 
       // Make API calls in parallel using dedicated service functions
       const [userResult, poutineResult, consentResult] = await Promise.all([
