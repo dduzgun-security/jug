@@ -1,6 +1,6 @@
 {
   "name": "@dduzgun-security/jug-model",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Protocol Buffer models for poutine ratings",
   "main": "index.js",
   "type": "commonjs",
