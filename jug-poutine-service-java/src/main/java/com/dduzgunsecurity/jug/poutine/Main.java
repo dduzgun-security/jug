@@ -6,6 +6,10 @@ import com.rating.poutine.v1.PoutineResponse;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpServer;
 import com.google.protobuf.util.JsonFormat;
+import build.buf.protovalidate.Validator;
+import build.buf.protovalidate.ValidatorFactory;
+import build.buf.protovalidate.ValidationResult;
+import build.buf.protovalidate.exceptions.ValidationException;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -14,12 +18,16 @@ import java.nio.charset.StandardCharsets;
 
 public class Main {
     private static final int PORT = getPort();
+    private static Validator validator;
 
     public static void main(String[] args) throws IOException {
         // Initialize protobuf classes early to avoid lazy initialization deadlock
         Poutine.getDefaultInstance();
         PoutineRequest.getDefaultInstance();
         PoutineResponse.getDefaultInstance();
+
+        // Initialize validator
+        validator = ValidatorFactory.newBuilder().build();
 
         HttpServer server = HttpServer.create(new InetSocketAddress(PORT), 0);
 
@@ -57,6 +65,15 @@ public class Main {
             Poutine.Builder poutineBuilder = Poutine.newBuilder();
             JsonFormat.parser().ignoringUnknownFields().merge(requestBody, poutineBuilder);
             Poutine poutine = poutineBuilder.build();
+
+            // Validate the poutine message
+            ValidationResult validationResult = validator.validate(poutine);
+            if (!validationResult.isSuccess()) {
+                String errorMessage = "Validation failed: " + validationResult.getViolations();
+                // System.err.println(errorMessage);
+                sendErrorResponse(exchange, 400, errorMessage);
+                return;
+            }
 
             // Create PoutineRequest with the parsed Poutine
             PoutineRequest poutineRequest = PoutineRequest.newBuilder()
