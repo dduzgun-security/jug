@@ -2,7 +2,10 @@ import { useState } from 'react'
 import './App.css'
 import RangeSlider from './components/RangeSlider'
 import RatingCard from './components/RatingCard'
-import * as models from '@dduzgun-security/jug-model'
+import { create } from '@bufbuild/protobuf'
+import { UserSchema } from '@dduzgun-security/jug-model/rating/user/v1/user_pb.js'
+import { PoutineSchema } from '@dduzgun-security/jug-model/rating/poutine/v1/poutine_pb.js'
+import { ConsentSchema } from '@dduzgun-security/jug-model/rating/consent/v1/consent_pb.js'
 import { submitUser, submitPoutineRating, submitConsent } from './api'
 
 function App() {
@@ -43,32 +46,35 @@ function App() {
     setSubmitError(null)
 
     try {
-      // Create User instance
-      const user = new models.user.User()
-      user.setFirstName(formData.firstName)
-      user.setLastName(formData.lastName)
-      user.setEmail(formData.email)
-      user.setAge(formData.age)
-      user.setPhoneNumber(formData.phoneNumber)
-      user.setStatus(formData.status)
+      // Create User instance using protobuf v2 API
+      const user = create(UserSchema, {
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        email: formData.email,
+        age: formData.age,
+        phoneNumber: formData.phoneNumber,
+        status: formData.status
+      })
 
-      // Create a new Poutine instance
-      const poutineRating = new models.poutine.Poutine()
-      poutineRating.setRestaurant(formData.restaurant)
-      poutineRating.setCheeseSqueakiness(formData.cheeseSqueakiness)
-      poutineRating.setGravyThickness(formData.gravyThickness)
-      poutineRating.setFriesCrispiness(formData.friesCrispiness)
-      poutineRating.setSize(formData.size)
-      poutineRating.setComments(formData.comments)
+      // Create Poutine instance using protobuf v2 API
+      const poutineRating = create(PoutineSchema, {
+        restaurant: formData.restaurant,
+        cheeseSqueakiness: formData.cheeseSqueakiness,
+        gravyThickness: formData.gravyThickness,
+        friesCrispiness: formData.friesCrispiness,
+        size: formData.size,
+        comments: formData.comments
+      })
 
-      // Create Consent instance
-      const consentModel = new models.consent.Consent()
-      consentModel.setEmail(formData.email)
-      consentModel.setConsent(formData.consent)
+      // Create Consent instance using protobuf v2 API
+      const consentModel = create(ConsentSchema, {
+        email: formData.email,
+        consent: formData.consent
+      })
 
-      console.log('User Model:', user.toObject())
-      console.log('Poutine Rating Model:', poutineRating.toObject())
-      console.log('Consent Model:', consentModel.toObject())
+      console.log('User Model:', user)
+      console.log('Poutine Rating Model:', poutineRating)
+      console.log('Consent Model:', consentModel)
 
       // Make API calls in parallel using dedicated service functions
       const [userResult, poutineResult, consentResult] = await Promise.all([
@@ -84,9 +90,9 @@ function App() {
       // Add to saved ratings with average score from API response
       setSavedRatings(prev => [...prev, {
         id: Date.now(),
-        user: user.toObject(),
+        user: user,
         rating: {
-          ...poutineRating.toObject(),
+          ...poutineRating,
           averageScore: poutineResult.averageScore || poutineResult.average_score
         }
       }])

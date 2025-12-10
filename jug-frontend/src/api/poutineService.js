@@ -3,6 +3,9 @@
  * Handles communication with the Poutine Service (Java) on port 8001
  */
 
+import { toJsonString } from '@bufbuild/protobuf'
+import { PoutineSchema } from '@dduzgun-security/jug-model/rating/poutine/v1/poutine_pb.js'
+
 const POUTINE_SERVICE_URL = 'http://localhost:8001/poutine'
 
 /**
@@ -16,7 +19,7 @@ export const submitPoutineRating = async (poutineModel) => {
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(poutineModel.toObject())
+    body: toJsonString(PoutineSchema, poutineModel)
   })
 
   if (!response.ok) {

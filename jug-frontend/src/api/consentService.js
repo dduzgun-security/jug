@@ -3,6 +3,9 @@
  * Handles communication with the Consent Service (JS) on port 8000
  */
 
+import { toJsonString } from '@bufbuild/protobuf'
+import { ConsentSchema } from '@dduzgun-security/jug-model/rating/consent/v1/consent_pb.js'
+
 const CONSENT_SERVICE_URL = 'http://localhost:8000/consent'
 
 /**
@@ -16,7 +19,7 @@ export const submitConsent = async (consentModel) => {
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(consentModel.toObject())
+    body: toJsonString(ConsentSchema, consentModel)
   })
 
   if (!response.ok) {

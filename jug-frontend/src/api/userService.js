@@ -3,6 +3,9 @@
  * Handles communication with the User Service (Go) on port 8002
  */
 
+import { toJsonString } from '@bufbuild/protobuf'
+import { UserSchema } from '@dduzgun-security/jug-model/rating/user/v1/user_pb.js'
+
 const USER_SERVICE_URL = 'http://localhost:8002/user'
 
 /**
@@ -16,7 +19,7 @@ export const submitUser = async (userModel) => {
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(userModel.toObject())
+    body: toJsonString(UserSchema, userModel)
   })
 
   if (!response.ok) {
