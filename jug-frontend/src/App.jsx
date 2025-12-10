@@ -263,7 +263,7 @@ function App() {
                         name="restaurant"
                         value={formData.restaurant}
                         onChange={handleInputChange}
-                        required
+                        // required
                         className="w-full px-2 py-1.5 text-xs border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all"
                         placeholder="e.g., La Banquise"
                       />

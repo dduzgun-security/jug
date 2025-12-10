@@ -9,6 +9,7 @@ import (
 	"os"
 	"strconv"
 
+	"buf.build/go/protovalidate"
 	userv1 "github.com/dduzgun-security/jug/jug-model/jug-model-go/rating/user/v1"
 	"google.golang.org/protobuf/encoding/protojson"
 )
@@ -54,6 +55,18 @@ func handleUserRequest(w http.ResponseWriter, r *http.Request) {
 	user := &userv1.User{}
 	if err := protojson.Unmarshal(body, user); err != nil {
 		sendErrorResponse(w, http.StatusBadRequest, fmt.Sprintf("Invalid user request: %v", err))
+		return
+	}
+
+	// Validate the User message
+	validator, err := protovalidate.New()
+	if err != nil {
+		sendErrorResponse(w, http.StatusInternalServerError, fmt.Sprintf("Failed to initialize validator: %v", err))
+		return
+	}
+
+	if err := validator.Validate(user); err != nil {
+		sendErrorResponse(w, http.StatusBadRequest, fmt.Sprintf("Validation failed: %v", err))
 		return
 	}
 
