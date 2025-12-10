@@ -3,6 +3,8 @@ module github.com/dduzgun-security/jug/jug-user-service-go
 go 1.25.5
 
 require (
-	github.com/dduzgun-security/jug/jug-model/jug-model-go v0.0.0-20251209073026-05c704ff2f1e
+	github.com/dduzgun-security/jug/jug-model/jug-model-go v0.0.0-20251210042133-3df183bb52fc
 	google.golang.org/protobuf v1.36.10
 )
+
+require buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go v1.36.10-20251209175733-2a1774d88802.1 // indirect

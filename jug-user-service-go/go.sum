@@ -1,5 +1,7 @@
-github.com/dduzgun-security/jug/jug-model/jug-model-go v0.0.0-20251209073026-05c704ff2f1e h1:ESSwzd1oPQkLfWjV+7LgT/LaJJvP6eOlkzMlNmoWDWg=
-github.com/dduzgun-security/jug/jug-model/jug-model-go v0.0.0-20251209073026-05c704ff2f1e/go.mod h1:vnHKoYwTVKQISqqmzPIYcn+kBfmshFSF7jPTyx0wWD0=
+buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go v1.36.10-20251209175733-2a1774d88802.1 h1:ZnX3qpF/pDiYrf+Q3p+/zCzZ5ELSpszy5hdVarDMSV4=
+buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go v1.36.10-20251209175733-2a1774d88802.1/go.mod h1:fUl8CEN/6ZAMk6bP8ahBJPUJw7rbp+j4x+wCcYi2IG4=
+github.com/dduzgun-security/jug/jug-model/jug-model-go v0.0.0-20251210042133-3df183bb52fc h1:gbnzYnsKnrf3+eXUWGZkfao1E4nfqxyDnhgc3oc5E1I=
+github.com/dduzgun-security/jug/jug-model/jug-model-go v0.0.0-20251210042133-3df183bb52fc/go.mod h1:++hErcQctbc+ivSaQ68jfD+9rySLsAkwR+F0L7+DImU=
 github.com/google/go-cmp v0.7.0 h1:wk8382ETsv4JYUZwIsn6YpYiWiBsYLSJiTsyBybVuN8=
 github.com/google/go-cmp v0.7.0/go.mod h1:pXiqmnSA92OHEEa9HXL2W4E7lf9JzCmGVUdgjX3N/iU=
 google.golang.org/protobuf v1.36.10 h1:AYd7cD/uASjIL6Q9LiTjz8JLcrh/88q5UObnmY3aOOE=
