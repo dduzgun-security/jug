@@ -44,7 +44,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object email_ = "";
   /**
-   * <code>string email = 1 [json_name = "email"];</code>
+   * <code>string email = 1 [json_name = "email", (.buf.validate.field) = { ... }</code>
    * @return The email.
    */
   @java.lang.Override
@@ -61,7 +61,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string email = 1 [json_name = "email"];</code>
+   * <code>string email = 1 [json_name = "email", (.buf.validate.field) = { ... }</code>
    * @return The bytes for email.
    */
   @java.lang.Override
@@ -82,7 +82,7 @@ private static final long serialVersionUID = 0L;
   public static final int CONSENT_FIELD_NUMBER = 2;
   private boolean consent_ = false;
   /**
-   * <code>bool consent = 2 [json_name = "consent"];</code>
+   * <code>bool consent = 2 [json_name = "consent", (.buf.validate.field) = { ... }</code>
    * @return The consent.
    */
   @java.lang.Override
@@ -442,7 +442,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object email_ = "";
     /**
-     * <code>string email = 1 [json_name = "email"];</code>
+     * <code>string email = 1 [json_name = "email", (.buf.validate.field) = { ... }</code>
      * @return The email.
      */
     public java.lang.String getEmail() {
@@ -458,7 +458,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string email = 1 [json_name = "email"];</code>
+     * <code>string email = 1 [json_name = "email", (.buf.validate.field) = { ... }</code>
      * @return The bytes for email.
      */
     public com.google.protobuf.ByteString
@@ -475,7 +475,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string email = 1 [json_name = "email"];</code>
+     * <code>string email = 1 [json_name = "email", (.buf.validate.field) = { ... }</code>
      * @param value The email to set.
      * @return This builder for chaining.
      */
@@ -488,7 +488,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string email = 1 [json_name = "email"];</code>
+     * <code>string email = 1 [json_name = "email", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearEmail() {
@@ -498,7 +498,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string email = 1 [json_name = "email"];</code>
+     * <code>string email = 1 [json_name = "email", (.buf.validate.field) = { ... }</code>
      * @param value The bytes for email to set.
      * @return This builder for chaining.
      */
@@ -514,7 +514,7 @@ private static final long serialVersionUID = 0L;
 
     private boolean consent_ ;
     /**
-     * <code>bool consent = 2 [json_name = "consent"];</code>
+     * <code>bool consent = 2 [json_name = "consent", (.buf.validate.field) = { ... }</code>
      * @return The consent.
      */
     @java.lang.Override
@@ -522,7 +522,7 @@ private static final long serialVersionUID = 0L;
       return consent_;
     }
     /**
-     * <code>bool consent = 2 [json_name = "consent"];</code>
+     * <code>bool consent = 2 [json_name = "consent", (.buf.validate.field) = { ... }</code>
      * @param value The consent to set.
      * @return This builder for chaining.
      */
@@ -534,7 +534,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>bool consent = 2 [json_name = "consent"];</code>
+     * <code>bool consent = 2 [json_name = "consent", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearConsent() {

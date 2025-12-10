@@ -9,19 +9,19 @@ public interface ConsentOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string email = 1 [json_name = "email"];</code>
+   * <code>string email = 1 [json_name = "email", (.buf.validate.field) = { ... }</code>
    * @return The email.
    */
   java.lang.String getEmail();
   /**
-   * <code>string email = 1 [json_name = "email"];</code>
+   * <code>string email = 1 [json_name = "email", (.buf.validate.field) = { ... }</code>
    * @return The bytes for email.
    */
   com.google.protobuf.ByteString
       getEmailBytes();
 
   /**
-   * <code>bool consent = 2 [json_name = "consent"];</code>
+   * <code>bool consent = 2 [json_name = "consent", (.buf.validate.field) = { ... }</code>
    * @return The consent.
    */
   boolean getConsent();

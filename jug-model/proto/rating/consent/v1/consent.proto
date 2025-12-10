@@ -2,13 +2,21 @@ syntax = "proto3";
 
 package rating.consent.v1;
 
+import "buf/validate/validate.proto";
+
 option go_package = "github.com/dduzgun-security/jug/jug-model/jug-model-go/rating/consent/v1;consentv1";
 option java_package = "com.rating.consent.v1";
 option java_multiple_files = true;
 
 message Consent {
-    string email = 1;
-    bool consent = 2;
+    string email = 1 [
+        (buf.validate.field).required = true,
+        (buf.validate.field).string.email = true
+    ];
+    bool consent = 2 [
+        (buf.validate.field).required = true,
+        (buf.validate.field).bool.const = true
+    ];
 }
 
 message ConsentRequest {

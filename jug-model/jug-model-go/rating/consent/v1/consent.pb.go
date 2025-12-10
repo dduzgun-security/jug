@@ -7,6 +7,7 @@
 package consentv1
 
 import (
+	_ "buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go/buf/validate"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -165,10 +166,12 @@ var File_rating_consent_v1_consent_proto protoreflect.FileDescriptor
 
 const file_rating_consent_v1_consent_proto_rawDesc = "" +
 	"\n" +
-	"\x1frating/consent/v1/consent.proto\x12\x11rating.consent.v1\"9\n" +
-	"\aConsent\x12\x14\n" +
-	"\x05email\x18\x01 \x01(\tR\x05email\x12\x18\n" +
-	"\aconsent\x18\x02 \x01(\bR\aconsent\"F\n" +
+	"\x1frating/consent/v1/consent.proto\x12\x11rating.consent.v1\x1a\x1bbuf/validate/validate.proto\"Q\n" +
+	"\aConsent\x12 \n" +
+	"\x05email\x18\x01 \x01(\tB\n" +
+	"\xbaH\a\xc8\x01\x01r\x02`\x01R\x05email\x12$\n" +
+	"\aconsent\x18\x02 \x01(\bB\n" +
+	"\xbaH\a\xc8\x01\x01j\x02\b\x01R\aconsent\"F\n" +
 	"\x0eConsentRequest\x124\n" +
 	"\aconsent\x18\x01 \x01(\v2\x1a.rating.consent.v1.ConsentR\aconsent\"+\n" +
 	"\x0fConsentResponse\x12\x18\n" +
