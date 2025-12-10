@@ -40,21 +40,23 @@ public final class ConsentProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\037rating/consent/v1/consent.proto\022\021ratin" +
-      "g.consent.v1\"9\n\007Consent\022\024\n\005email\030\001 \001(\tR\005" +
-      "email\022\030\n\007consent\030\002 \001(\010R\007consent\"F\n\016Conse" +
-      "ntRequest\0224\n\007consent\030\001 \001(\0132\032.rating.cons" +
-      "ent.v1.ConsentR\007consent\"+\n\017ConsentRespon" +
-      "se\022\030\n\007message\030\001 \001(\tR\007messageB\337\001\n\025com.rat" +
-      "ing.consent.v1B\014ConsentProtoP\001ZRgithub.c" +
-      "om/dduzgun-security/jug/jug-model/jug-mo" +
-      "del-go/rating/consent/v1;consentv1\242\002\003RCX" +
-      "\252\002\021Rating.Consent.V1\312\002\021Rating\\Consent\\V1" +
-      "\342\002\035Rating\\Consent\\V1\\GPBMetadata\352\002\023Ratin" +
-      "g::Consent::V1b\006proto3"
+      "g.consent.v1\032\033buf/validate/validate.prot" +
+      "o\"Q\n\007Consent\022 \n\005email\030\001 \001(\tB\n\272H\007r\002`\001\310\001\001R" +
+      "\005email\022$\n\007consent\030\002 \001(\010B\n\272H\007j\002\010\001\310\001\001R\007con" +
+      "sent\"F\n\016ConsentRequest\0224\n\007consent\030\001 \001(\0132" +
+      "\032.rating.consent.v1.ConsentR\007consent\"+\n\017" +
+      "ConsentResponse\022\030\n\007message\030\001 \001(\tR\007messag" +
+      "eB\337\001\n\025com.rating.consent.v1B\014ConsentProt" +
+      "oP\001ZRgithub.com/dduzgun-security/jug/jug" +
+      "-model/jug-model-go/rating/consent/v1;co" +
+      "nsentv1\242\002\003RCX\252\002\021Rating.Consent.V1\312\002\021Rati" +
+      "ng\\Consent\\V1\342\002\035Rating\\Consent\\V1\\GPBMet" +
+      "adata\352\002\023Rating::Consent::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          com.buf.validate.ValidateProto.getDescriptor(),
         });
     internal_static_rating_consent_v1_Consent_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -74,6 +76,12 @@ public final class ConsentProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_rating_consent_v1_ConsentResponse_descriptor,
         new java.lang.String[] { "Message", });
+    com.google.protobuf.ExtensionRegistry registry =
+        com.google.protobuf.ExtensionRegistry.newInstance();
+    registry.add(com.buf.validate.ValidateProto.field);
+    com.google.protobuf.Descriptors.FileDescriptor
+        .internalUpdateFileDescriptor(descriptor, registry);
+    com.buf.validate.ValidateProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)
